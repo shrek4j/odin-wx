@@ -1,0 +1,62 @@
+//index.js
+//获取应用实例
+var app = getApp()
+var WxSearch = require('../../wxSearch/wxSearch.js')
+Page({
+  data: {
+    userInfo: {}
+  },
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  onLoad: function () {
+    console.log('onLoad')
+    var that = this
+    //初始化的时候渲染wxSearchdata 第二个为你的search高度
+    WxSearch.init(that, 43, ['weappdev', '小程序', 'wxParse', 'wxSearch', 'wxNotification']);
+  //  WxSearch.initMindKeys(['weappdev.com', '微信小程序开发', '微信开发', '微信小程序']);
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function(userInfo){
+      //更新数据
+      that.setData({
+        userInfo:userInfo
+      })
+    });
+  },
+  wxSearchFn: function (e) {
+    var that = this
+    WxSearch.wxSearchAddHisKey(that);
+
+  },
+  wxSearchInput: function (e) {
+    var that = this
+    WxSearch.wxSearchInput(e, that);
+  },
+  wxSerchFocus: function (e) {
+    var that = this
+    WxSearch.wxSearchFocus(e, that);
+  },
+  wxSearchBlur: function (e) {
+    var that = this
+    WxSearch.wxSearchBlur(e, that);
+  },
+  wxSearchKeyTap: function (e) {
+    var that = this
+    WxSearch.wxSearchKeyTap(e, that);
+  },
+  wxSearchDeleteKey: function (e) {
+    var that = this
+    WxSearch.wxSearchDeleteKey(e, that);
+  },
+  wxSearchDeleteAll: function (e) {
+    var that = this;
+    WxSearch.wxSearchDeleteAll(that);
+  },
+  wxSearchTap: function (e) {
+    var that = this
+    WxSearch.wxSearchHiddenPancel(that);
+  }
+})

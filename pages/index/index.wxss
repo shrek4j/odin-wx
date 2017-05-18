@@ -1,0 +1,25 @@
+@import "/wxSearch/wxSearch.wxss";
+
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:40%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size:14px;
+}
+
+.usermotto {
+  font-size:14px;
+}
