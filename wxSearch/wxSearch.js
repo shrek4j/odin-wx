@@ -93,12 +93,12 @@ function wxSearchInput(e, that, callBack){
             return;
           }
           var dataObj = JSON.parse(msg);
-          for (var i = 0; i < dataObj.length;i++){
-            console.log(dataObj[i])
-            mindKeys.push(dataObj[i].word_root)
-          }
+          //for (var i = 0; i < dataObj.length;i++){
+         //   console.log(dataObj[i])
+         //   mindKeys.push(dataObj[i].word_root)
+         // }
           temData.value = text;
-          temData.mindKeys = mindKeys;
+          temData.mindKeys = dataObj;
           that.setData({
             wxSearchData: temData
           });
@@ -146,17 +146,33 @@ function wxSearchHiddenPancel(that){
     });
 }
 
+function wxSearchShowPancel(that) {
+  var temData = that.data.wxSearchData;
+  temData.view.isShow = true;
+  that.setData({
+    wxSearchData: temData
+  });
+}
+
 function wxSearchKeyTap(e, that, callBack) {
     //回调
+    /**
     var temData = that.data.wxSearchData;
-    temData.value = e.target.dataset.key;
+    temData.value = e.target.dataset.root;
     that.setData({
         wxSearchData: temData
     });
     if (typeof (callBack) == "function") {
         callBack();
     }
+     */
+    var text = e.target.dataset.root;
+    wxSearchAddHisKeyCore(text,that);
+    wx.navigateTo({
+      url: '../wordlist/index?morphemeId=' + e.target.dataset.id
+    });
 }
+
 function getHisKeys(that) {
     var value = [];
     try {
@@ -177,33 +193,39 @@ function getHisKeys(that) {
 function wxSearchAddHisKey(that) {
     wxSearchHiddenPancel(that);
     var text = that.data.wxSearchData.value;
-    if(typeof(text) == "undefined" || text.length == 0){return;}
-    var value = wx.getStorageSync('wxSearchHisKeys');
-    if(value){
-        if(value.indexOf(text) < 0){
-            value.unshift(text);
-        }
-        wx.setStorage({
-            key:"wxSearchHisKeys",
-            data:value,
-            success: function(){
-                getHisKeys(that);
-            }
-        })
-    }else{
-        value = [];
-        value.push(text);
-        wx.setStorage({
-            key:"wxSearchHisKeys",
-            data:value,
-            success: function(){
-                getHisKeys(that);
-            }
-        })
-    }
-    
-    
+    wxSearchAddHisKeyCore(text, that);
 }
+
+function wxSearchAddHisKeyCore(text,that){
+  if (typeof (text) == "undefined" || text.length == 0) { return; }
+  var value = wx.getStorageSync('wxSearchHisKeys');
+  if (value) {
+    if (value.indexOf(text) < 0) {
+      if(value.length > 4){
+        value.pop();
+      }
+      value.unshift(text);
+    }
+    wx.setStorage({
+      key: "wxSearchHisKeys",
+      data: value,
+      success: function () {
+        getHisKeys(that);
+      }
+    })
+  } else {
+    value = [];
+    value.push(text);
+    wx.setStorage({
+      key: "wxSearchHisKeys",
+      data: value,
+      success: function () {
+        getHisKeys(that);
+      }
+    })
+  }
+}
+
 function wxSearchDeleteKey(e,that) {
     var text = e.target.dataset.key;
     var value = wx.getStorageSync('wxSearchHisKeys');
@@ -213,8 +235,10 @@ function wxSearchDeleteKey(e,that) {
         data:value,
         success: function(){
             getHisKeys(that);
+          //  wxSearchShowPancel(that);
         }
     })
+    
 }
 function wxSearchDeleteAll(that){
     wx.removeStorage({
@@ -226,8 +250,10 @@ function wxSearchDeleteAll(that){
             that.setData({
                 wxSearchData: temData
             });
+           // wxSearchShowPancel(that);
         } 
     })
+    
 }
 
 

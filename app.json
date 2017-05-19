@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/rootlist/index"
+    "pages/rootlist/index",
+    "pages/wordlist/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

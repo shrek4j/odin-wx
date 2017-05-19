@@ -1,6 +1,5 @@
 .wxSearch{
-  position: absolute;
-  top: 43px;
+  top: 53px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -13,6 +12,8 @@
 .wxSearch-section{
   background-color: #fff;
   padding: 5px 10px;
+  margin-top: 10px;
+  margin-left:10px;
 }
 .wxSearch-pancel{
   display: flex;
@@ -43,8 +44,15 @@
 
 
 .wxSearchMindKeyItem{
-  padding: 15px 5px;
+  padding: 10px 5px;
   border-bottom: 1px solid #eee;
+  display: block;
+  font-size: 14px;
+  color: cornflowerblue;
+}
+
+.wxSearchMindKeyItemLine{
+  padding: 2px 5px 2px 5px;
   display: flex;
   font-size: 14px;
   color: cornflowerblue;
