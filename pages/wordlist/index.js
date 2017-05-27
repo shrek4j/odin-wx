@@ -1,3 +1,5 @@
+var base64 = require("../images/base64");
+
 //index.js
 //获取应用实例
 var app = getApp()
@@ -12,15 +14,34 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    console.log('onLoad')
+  onLoad: function (options) {
+    this.setData({
+      icon20: base64.icon20,
+      icon60: base64.icon60
+    });
+    var morphemeId = options.morphemeId;
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
+    wx.request({
+      url: 'https://odin.bajiaoshan893.com/Morph/showWordsByMorphemeJson',
+      data: {
+        'morphemeId': morphemeId
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var msg = res.data
+        console.log(msg)
+        if (msg == 'noresult') {
+          return;
+        }
+        var dataObj = JSON.parse(msg);
+        console.log(dataObj);
+
+        that.setData({
+          msg: msg
+        });
+      }
     })
   }
 })

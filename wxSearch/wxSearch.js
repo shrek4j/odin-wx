@@ -88,7 +88,7 @@ function wxSearchInput(e, that, callBack){
         },
         success: function (res) {
           var msg = res.data
-          console.log(msg)
+          //console.log(msg)
           if (msg == 'noresult') {
             return;
           }
@@ -167,9 +167,10 @@ function wxSearchKeyTap(e, that, callBack) {
     }
      */
     var text = e.target.dataset.root;
+    var id = e.target.dataset.id
     wxSearchAddHisKeyCore(text,that);
     wx.navigateTo({
-      url: '../wordlist/index?morphemeId=' + e.target.dataset.id
+      url: '../wordlist/index?morphemeId=' + id
     });
 }
 
