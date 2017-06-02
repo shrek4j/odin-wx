@@ -6,6 +6,25 @@ Page({
   data: {
     userInfo: {}
   },
+  onShareAppMessage: function () {
+    return {
+      title: '还在玩王者荣耀？大家都在学习英语词根，就差你了~',
+      path: '/pages/index/index',
+      success: function (res) {
+        wx.showToast({
+          title: '转发成功！',
+          icon: 'success',
+          duration: 1500
+        })
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '转发失败，请稍后再试',
+          duration: 1500
+        })
+      }
+    }
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({

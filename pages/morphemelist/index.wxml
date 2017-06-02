@@ -1,10 +1,8 @@
 <view class="page">
     <view class="page__bd">
-        <view class="morpheme">词根：{{dataObj.morpheme[0].word_root}}</view>
-        <view class="morpheme-style">排名：{{dataObj.morpheme[0].rank}}</view>
-        <view class="morpheme-style" wx:if="{{dataObj.morpheme[0].origin == 1}}"> 来源：Latin </view>
-        <view class="morpheme-style" wx:elif="{{dataObj.morpheme[0].origin == 2}}"> 来源：Greek</view>
-        <view class="morpheme-style">释义：{{dataObj.morpheme[0].meaning}}</view>
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <button type="default">单列选择器</button>
+            </picker>
         
         <view class="weui-panel">
             <view class="weui-panel__hd">

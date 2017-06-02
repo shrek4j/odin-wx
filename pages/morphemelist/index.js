@@ -4,26 +4,30 @@ var base64 = require("../images/base64");
 //获取应用实例
 var app = getApp()
 var morphemeId = 1
+var letterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 Page({
-  //事件处理函数
-  showSimilarWords: function (e) {
-    var wId = e.target.dataset.id
-    var root = e.target.dataset.root
-    wx.navigateTo({
-      url: '../similarwordlist/index?wId=' + wId
+  data: {
+    array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z'],
+    index: 0
+  },
+  bindPickerChange: function (e) {
+    var capital = letterArray[e.detail.value]
+    console.log('picker发送选择改变，携带值为', capital)
+    wx.redirectTo({
+      url: '../morphemelist/index?capital=' + capital
     })
   },
   onLoad: function (options) {
-    this.setData({
-      icon20: base64.icon20,
-      icon60: base64.icon60
-    });
-    morphemeId = options.morphemeId;
+    var capital = options.capital
+    if(capital == null || capital == undefined){
+      captial = 'a'
+    }
+
     var that = this
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/Morph/showWordsByMorphemeJson',
+      url: 'https://odin.bajiaoshan893.com/Morph/showMorphemesByCapital',
       data: {
-        'morphemeId': morphemeId
+        'capital': capital
       },
       header: {
         'content-type': 'application/json'
@@ -50,28 +54,10 @@ Page({
         //--转换translation的<br/>
 
         that.setData({
-          dataObj: dataObj
+          dataObj: dataObj,
+          pickertitle: "选择首字母查询：" + capital
         });
       }
     })
-  },
-  onShareAppMessage: function () {
-    return {
-      title: '我又掌握了一个英语词根，也分享给你学习一下吧~',
-      path: '/pages/wordlist/index?morphemeId=' + morphemeId,
-      success: function (res) {
-        wx.showToast({
-          title: '转发成功！',
-          icon: 'success',
-          duration: 1500
-        })
-      },
-      fail: function (res) {
-        wx.showToast({
-          title: '转发失败，请稍后再试',
-          duration: 1500
-        })
-      }
-    }
   }
 })

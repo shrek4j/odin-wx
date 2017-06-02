@@ -700,7 +700,7 @@ icon {
   padding: .15em .4em;
   min-width: 8px;
   border-radius: 18px;
-  background-color: #E64340;
+  background-color: #5091d4;
   color: #FFFFFF;
   line-height: 1.2;
   text-align: center;
@@ -830,11 +830,6 @@ icon {
   color: #999999;
   font-size: 13px;
   line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 .weui-media-box__info {
   margin-top: 15px;
@@ -850,6 +845,7 @@ icon {
   padding-right: 1em;
 }
 .weui-media-box__info__meta_extra {
+  color:#5091d4;
   padding-left: 1em;
   border-left: 1px solid #CECECE;
 }

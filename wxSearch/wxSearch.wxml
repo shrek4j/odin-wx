@@ -6,13 +6,15 @@
             <view class="wxSearchMindKeyList">
                 <block wx:for="{{wxSearchData.mindKeys}}">
                         <view class="wxSearchMindKeyItem" >
-                          <view class="wxSearchMindKeyItemLine" bindtap="wxSearchKeyTap" data-id="{{item.id}}" data-root="{{item.word_root}}">{{item.word_root}}</view>
+                          <view class="wxSearchMindKeyItemLine" bindtap="wxSearchKeyTap" data-id="{{item.id}}" data-root="{{item.word_root}}">词根：{{item.word_root}}</view>
                           <view class="wxSearchMindKeyItemLine" bindtap="wxSearchKeyTap" data-id="{{item.id}}" data-root="{{item.word_root}}">释义：{{item.meaning}}</view>
                         </view>
                 </block>
             </view>
         </view>
 
+<!--invisible-->
+  <view class="invisible" style="display:none">
         <view class="wxSearchKey" style="display:none">
             <text class="wxSearchTitle">热门搜索</text>
             <view class="wxSearchKeyList">
@@ -44,6 +46,11 @@
               </view>
             </view>
         </view>
+
+
+      </view><!-- invisible-->
+
+
     </view>
   </view>
 </template>

@@ -2,16 +2,33 @@
   "pages":[
     "pages/index/index",
     "pages/rootlist/index",
-    "pages/wordlist/index"
+    "pages/wordlist/index",
+    "pages/similarwordlist/index",
+    "pages/morphemelist/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#0a4d7d",
     "navigationBarTitleText": "ODIN'S EYE词根词典",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white"
   },
   "networkTimeout": {
     "request": 10000,
     "downloadFile": 10000
+  },
+  "tabBar": {
+    "selectedColor": "#1474b9",
+    "position":"top",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "词根搜索",
+      "iconPath": "pages/images/search_normal.png",
+      "selectedIconPath": "pages/images/search_highlight.png"
+    },{
+      "pagePath": "pages/morphemelist/index",
+      "text": "词根列表",
+      "iconPath": "pages/images/list_normal.png",
+      "selectedIconPath": "pages/images/list_highlight.png"
+    }]
   }
 }

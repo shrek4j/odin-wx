@@ -13,6 +13,7 @@
   background-color: #fff;
   padding: 5px 10px;
   margin-top: 10px;
+  margin-bottom: 10px;
   margin-left:10px;
 }
 .wxSearch-pancel{
@@ -31,8 +32,9 @@
 .wxSearch-button{
   flex: 1;
   border: none !important;
-  color: cornflowerblue !important;
+  color: #000 !important;
   font-size:14px;
+  font-family:-apple-system-font, "Helvetica Neue", Helvetica, sans-serif, "Microsoft YaHei", SimSun, 宋体, Heiti;
 }
 
 .wxSearchTitle{
@@ -48,14 +50,16 @@
   border-bottom: 1px solid #eee;
   display: block;
   font-size: 14px;
-  color: cornflowerblue;
+  color: #000;
+  font-family:-apple-system-font, "Helvetica Neue", Helvetica, sans-serif, "Microsoft YaHei", SimSun, 宋体, Heiti;
 }
 
 .wxSearchMindKeyItemLine{
   padding: 2px 5px 2px 5px;
   display: flex;
   font-size: 14px;
-  color: cornflowerblue;
+  color: #000;
+  font-family:-apple-system-font, "Helvetica Neue", Helvetica, sans-serif, "Microsoft YaHei", SimSun, 宋体, Heiti;
 }
 
 .wxSearchKeyList{
