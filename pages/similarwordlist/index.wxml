@@ -3,7 +3,7 @@
         
         <view class="weui-panel">
             <view class="weui-panel__hd">
-              相似单词
+              相关单词
             </view>
             
             <view class="weui-panel__bd">
@@ -17,9 +17,9 @@
                     <view  wx:elif="{{item.freq_level == 4}}" class="weui-badge" style="margin-left: 5px;">词频：低</view>
                     <view  wx:elif="{{item.freq_level == 5}}" class="weui-badge" style="margin-left: 5px;">词频：极低</view>
                     </view>
-                      <view class="weui-media-box__desc">
+                      <view class="weui-media-box__desc" style="margin-left:0.5em">
                       <block wx:for="{{item.tranList}}" wx:for-item="item1">
-                        <view>{{item1}}</view>
+                        <view style="margin-top:0.2em">{{item1}}</view>
                       </block>
                     </view>
                 </view>

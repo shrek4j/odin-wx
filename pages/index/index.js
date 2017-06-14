@@ -3,9 +3,6 @@
 var app = getApp()
 var WxSearch = require('../../wxSearch/wxSearch.js')
 Page({
-  data: {
-    userInfo: {}
-  },
   onShareAppMessage: function () {
     return {
       title: '还在玩王者荣耀？大家都在学习英语词根，就差你了~',
@@ -31,13 +28,6 @@ Page({
     //初始化的时候渲染wxSearchdata 第二个为你的search高度
     WxSearch.init(that, 43, ['weappdev', '小程序', 'wxParse', 'wxSearch', 'wxNotification']);
   //  WxSearch.initMindKeys(['weappdev.com', '微信小程序开发', '微信开发', '微信小程序']);
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    });
   },
   wxSearchFn: function (e) {
     var that = this
@@ -48,7 +38,7 @@ Page({
     var that = this
     WxSearch.wxSearchInput(e, that);
   },
-  wxSerchFocus: function (e) {
+  wxSearchFocus: function (e) {
     var that = this
     WxSearch.wxSearchFocus(e, that);
   },

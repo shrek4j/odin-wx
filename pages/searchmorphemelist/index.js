@@ -17,6 +17,12 @@ Page({
       url: '../morphemelist/index?capital=' + capital
     })
   },
+  showwordlist: function (e) {
+    var id = e.target.dataset.mid
+    wx.navigateTo({
+      url: '../wordlist/index?morphemeId=' + id
+    });
+  },
   onLoad: function (options) {
     var capital = options.capital
     if (capital == null || capital == undefined) {

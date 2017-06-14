@@ -16,7 +16,7 @@
   margin-bottom: 10px;
   margin-left:10px;
   margin-right:10px;
-}
+} 
 .wxSearch-pancel{
   display: flex;
   flex-direction: row;
@@ -25,10 +25,11 @@
   flex: 10; 
   background-color: #eee;
   padding: 5px 10px 5px 10px;
-  font-size: 12px;
+  font-size: 16px;
   border-radius:8px;
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
+  height:35px;
 }
 .wxSearch-button{
   flex: 1;

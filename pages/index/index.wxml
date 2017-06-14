@@ -3,7 +3,7 @@
 
 <view class="wxSearch-section">
   <view class="wxSearch-pancel">
-    <input id="fuzzyText" bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索词根" />
+    <input id="fuzzyText" bindinput="wxSearchInput" bindfocus="wxSearchFocus" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索词根（输入词根或单词）" />
     <!--<button bindtap="wxSearchFn" class="wxSearch-button"  size="mini" plain="true">搜索</button>-->
   </view>
 </view>
@@ -11,7 +11,7 @@
   
 
 <view  class="userinfo">
-  <image class="userinfo-avatar" src="/pages/index/morphlogo.png" background-size="cover"></image>
+  <image class="userinfo-avatar" src="/pages/index/morphlogo.jpg" background-size="cover"></image>
   <text class="userinfo-nickname">ODIN'S EYE词根词典</text>
 </view>  
 

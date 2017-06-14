@@ -10,24 +10,29 @@
           <audio author="作者：史莱克  朗读：{{dataObj.morpheme[0].audio_recorder}}" name="奥汀之眼单词课堂" src="{{dataObj.morpheme[0].audio}}" id="myAudio" controls="controls" preload="preload"></audio>
         </view>
         <view class="weui-panel">
-            <view class="weui-panel__hd">
+            <view class="weui-panel__hd" style="color:#333;">
               单词列表
             </view>
-            
+            <view class="weui-panel__hd">
+              <view>注：</view>
+              <view>1.词频：单词在海量文本中的出现频率</view>
+              <view>2.雅思：单词在雅思真题阅读部分的出现次数</view>
+            </view>
             <view class="weui-panel__bd">
              <block wx:for="{{dataObj.wordList}}">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">
                     {{item.num}}.{{item.word}}
-                    <view  wx:if="{{item.freq_level == 1}}" class="weui-badge" style="margin-left: 5px;">词频：极高</view>
-                    <view  wx:elif="{{item.freq_level == 2}}" class="weui-badge" style="margin-left: 5px;">词频：高</view>
-                    <view  wx:elif="{{item.freq_level == 3}}" class="weui-badge" style="margin-left: 5px;">词频：中</view>
-                    <view  wx:elif="{{item.freq_level == 4}}" class="weui-badge" style="margin-left: 5px;">词频：低</view>
-                    <view  wx:elif="{{item.freq_level == 5}}" class="weui-badge" style="margin-left: 5px;">词频：极低</view>
+                    <view  wx:if="{{item.freq_level == 1}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：极高</view>
+                    <view  wx:elif="{{item.freq_level == 2}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：高</view>
+                    <view  wx:elif="{{item.freq_level == 3}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：中</view>
+                    <view  wx:elif="{{item.freq_level == 4}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：低</view>
+                    <view  wx:elif="{{item.freq_level == 5}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：极低</view>
+                    <view  wx:if="{{item.all_ielts_freq}}" class="weui-badge" style="margin-left: 10px;background-color:#e41432;">雅思：{{item.all_ielts_freq}}次</view>
                     </view>
-                    <view class="weui-media-box__desc">
+                    <view class="weui-media-box__desc" style="margin-left:0.5em">
                       <block wx:for="{{item.tranList}}" wx:for-item="item1">
-                        <view>{{item1}}</view>
+                        <view style="margin-top:0.2em">{{item1}}</view>
                       </block>
                     </view>
                     <view class="weui-media-box__info"> 

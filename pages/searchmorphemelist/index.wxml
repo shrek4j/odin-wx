@@ -1,14 +1,17 @@
 <view class="page">
     <view class="page__bd">
           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="letterpicker">
-              <button type="default" style="font-size:14px;">点击选择首字母查询：{{dataObj.capital}}</button>
+              <button type="default" style="font-size:16px;height:45px;line-height:45px;">点击选择首字母查询：{{dataObj.capital}}</button>
           </picker>
         
           <view class="weui-panel">
-            <view class="weui-panel__hd">
+            <view class="weui-panel__hd" style="color:#333;">
               词根列表
             </view>
-            
+            <view class="weui-panel__hd">
+              <view>注：</view>
+              <view>排名：根据词根对应的单词数量和词频综合计算得出</view>
+            </view>
             <view class="weui-panel__bd">
              <block wx:for="{{dataObj.morphList}}">
                 <view class="weui-media-box weui-media-box_text">
@@ -16,11 +19,11 @@
                     {{item.num}}.{{item.word_root}}
                     <view class="weui-badge" style="margin-left: 5px;">排名：{{item.rank}}</view>
                     </view>
-                    <view class="weui-media-box__desc">
+                    <view class="weui-media-box__desc"  style="margin-left:0.5em">
                       <view wx:if="{{item.origin == 1}}"   bindtap="showwordlist" data-mid="{{item.id}}"> 来源：Latin </view>
                       <view wx:elif="{{item.origin == 2}}"   bindtap="showwordlist" data-mid="{{item.id}}"> 来源：Greek</view>
                     </view>
-                    <view class="weui-media-box__desc" style="margin-top:0.3em">
+                    <view class="weui-media-box__desc" style="margin-top:0.3em;margin-left:0.5em;">
                       <view bindtap="showwordlist" data-mid="{{item.id}}">英文释义：{{item.meaning}}</view>
                     </view>
                 </view>
