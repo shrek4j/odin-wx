@@ -1,10 +1,10 @@
 <view class="page">
     <view class="page__bd">
           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="letterpicker">
-                <button type="default" style="font-size:14px;">选择首字母查询：{{dataObj.capital}}</button>
-            </picker>
+              <button type="default" style="font-size:14px;">点击选择首字母查询：{{dataObj.capital}}</button>
+          </picker>
         
-        <view class="weui-panel">
+          <view class="weui-panel">
             <view class="weui-panel__hd">
               词根列表
             </view>
@@ -27,5 +27,6 @@
               </block>
             </view>
         </view>
+
     </view>
 </view>

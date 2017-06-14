@@ -5,7 +5,10 @@
         <view class="morpheme-style" wx:if="{{dataObj.morpheme[0].origin == 1}}"> 来源：Latin </view>
         <view class="morpheme-style" wx:elif="{{dataObj.morpheme[0].origin == 2}}"> 来源：Greek</view>
         <view class="morpheme-style">释义：{{dataObj.morpheme[0].meaning}}</view>
-        
+        <view class="morpheme-style" wx:if="{{dataObj.morpheme[0].audio}}"> 
+          <!-- audio.wxml -->
+          <audio author="作者：史莱克  朗读：{{dataObj.morpheme[0].audio_recorder}}" name="奥汀之眼单词课堂" src="{{dataObj.morpheme[0].audio}}" id="myAudio" controls="controls" preload="preload"></audio>
+        </view>
         <view class="weui-panel">
             <view class="weui-panel__hd">
               单词列表
@@ -15,7 +18,7 @@
              <block wx:for="{{dataObj.wordList}}">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">
-                    {{item.word}}
+                    {{item.num}}.{{item.word}}
                     <view  wx:if="{{item.freq_level == 1}}" class="weui-badge" style="margin-left: 5px;">词频：极高</view>
                     <view  wx:elif="{{item.freq_level == 2}}" class="weui-badge" style="margin-left: 5px;">词频：高</view>
                     <view  wx:elif="{{item.freq_level == 3}}" class="weui-badge" style="margin-left: 5px;">词频：中</view>

@@ -10,7 +10,7 @@
              <block wx:for="{{dataObj.wordList}}">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">
-                    {{item.word}}
+                    {{item.num}}.{{item.word}}
                     <view  wx:if="{{item.freq_level == 1}}" class="weui-badge" style="margin-left: 5px;">词频：极高</view>
                     <view  wx:elif="{{item.freq_level == 2}}" class="weui-badge" style="margin-left: 5px;">词频：高</view>
                     <view  wx:elif="{{item.freq_level == 3}}" class="weui-badge" style="margin-left: 5px;">词频：中</view>

@@ -168,7 +168,7 @@ function wxSearchKeyTap(e, that, callBack) {
      */
     var text = e.target.dataset.root;
     var id = e.target.dataset.id
-    wxSearchAddHisKeyCore(text,that);
+  //  wxSearchAddHisKeyCore(text,that);
     wx.navigateTo({
       url: '../wordlist/index?morphemeId=' + id
     });

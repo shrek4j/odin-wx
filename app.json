@@ -4,12 +4,13 @@
     "pages/rootlist/index",
     "pages/wordlist/index",
     "pages/similarwordlist/index",
-    "pages/morphemelist/index"
+    "pages/morphemelist/index",
+    "pages/searchmorphemelist/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#0a4d7d",
-    "navigationBarTitleText": "ODIN'S EYE词根词典",
+    "navigationBarTitleText": "奥汀之眼词根词典",
     "navigationBarTextStyle":"white"
   },
   "networkTimeout": {
@@ -25,7 +26,7 @@
       "iconPath": "pages/images/search_normal.png",
       "selectedIconPath": "pages/images/search_highlight.png"
     },{
-      "pagePath": "pages/morphemelist/index",
+      "pagePath": "pages/searchmorphemelist/index",
       "text": "词根列表",
       "iconPath": "pages/images/list_normal.png",
       "selectedIconPath": "pages/images/list_highlight.png"

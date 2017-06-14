@@ -37,7 +37,9 @@ Page({
 
         //--转换translation的<br/>
         var wordList = dataObj.wordList;
+        var num = 1;
         for(var i=0;i<wordList.length;i++){
+          wordList[i]['num'] = num++
           var trans = wordList[i].translation
           var tranArr = trans.split('<br/>')
           if(tranArr==null || tranArr == undefined || tranArr == '' || tranArr.length==0){

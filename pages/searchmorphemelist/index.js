@@ -12,19 +12,14 @@ Page({
   },
   bindPickerChange: function (e) {
     var capital = letterArray[e.detail.value]
-    wx.redirectTo({
+    console.log('picker发送选择改变，携带值为', capital)
+    wx.navigateTo({
       url: '../morphemelist/index?capital=' + capital
     })
-  }, 
-  showwordlist: function (e) {
-    var id = e.target.dataset.mid
-    wx.navigateTo({
-      url: '../wordlist/index?morphemeId=' + id
-    });
   },
   onLoad: function (options) {
     var capital = options.capital
-    if(capital == null || capital == undefined){
+    if (capital == null || capital == undefined) {
       capital = 'a'
     }
 
@@ -47,7 +42,7 @@ Page({
         //--转换translation的<br/>
         var morphList = dataObj.morphList;
         var num = 1;
-        for (var i = 0; i < morphList.length;i++){
+        for (var i = 0; i < morphList.length; i++) {
           morphList[i]['num'] = num++
         }
         //--转换translation的<br/>
@@ -57,5 +52,6 @@ Page({
         });
       }
     });
+
   }
 })
