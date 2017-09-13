@@ -1,0 +1,17 @@
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.quote{
+  font-size:12px;
+  font-style: italic;
+  margin:15px;
+}
+
+.egg{
+  font-size:14px;
+  font-weight: bolder;
+  margin-top:20px;
+}

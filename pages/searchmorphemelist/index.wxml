@@ -1,9 +1,14 @@
 <view class="page">
     <view class="page__bd">
           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="letterpicker">
-              <button type="default" style="font-size:16px;height:45px;line-height:45px;">点击选择首字母查询：{{dataObj.capital}}</button>
+              <button type="default" class="searchBtn">根据词根首字母查询</button>
           </picker>
-        
+          <view class="topMorphemes">
+              <button type="default" class="searchBtn" bindtap="searchTopMorphemes" data-num="100">查询TOP1-100高频词根</button>
+              <button type="default" class="searchBtn" bindtap="searchTopMorphemes" data-num="200">查询TOP101-200高频词根</button>
+              <button type="default" class="searchBtn" bindtap="searchTopMorphemes" data-num="300">查询TOP201-300高频词根</button>
+          </view>
+          <!-- 
           <view class="weui-panel">
             <view class="weui-panel__hd" style="color:#333;">
               词根列表
@@ -29,7 +34,7 @@
                 </view>
               </block>
             </view>
-        </view>
-
+          </view>
+          -->
     </view>
 </view>

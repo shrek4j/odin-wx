@@ -59,7 +59,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '我又掌握了一个英语词根，也分享给你学习一下吧~',
+      title: '天了噜！用这个词根，我一下记住了好多单词！',
       path: '/pages/wordlist/index?morphemeId=' + morphemeId,
       success: function (res) {
         wx.showToast({

@@ -1,0 +1,25 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title"></view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells__title">精选文章</view>
+        <view class="weui-cells weui-cells_after-title" style="font-size:14px;">
+            <navigator url="/pages/article/a20170511" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                  <view class="weui-badge" style="margin-left: 5px;background-color:red;">置顶</view>
+                  <view class="weui-badge" style="margin-left: 5px;background-color:red;">原创</view>
+                  我为什么要做词根词典网站？
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">2017-05-11</view>
+            </navigator>
+            <navigator url="/pages/article/a20170815" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                  <view class="weui-badge" style="margin-left: 5px;background-color:red;">原创</view>
+                  揭秘英语单词学习的正确方法
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access">2017-08-15</view>
+            </navigator>
+        </view>
+    </view>
+</view>

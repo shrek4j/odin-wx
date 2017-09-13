@@ -1,0 +1,73 @@
+<view class="page">
+
+    <view class="page__bd">
+        <view class="weui-article">
+            <view style="margin:5px 5px 20px 5px">
+            <view class="weui-article__h1">揭秘英语单词学习的正确方法</view>
+            <view class="page__desc" style="font-size:12px;">作者：史莱克</view>
+            <view class="page__desc" style="font-size:12px;">公众号：英语课代表史莱克</view>
+            </view>
+            <view class="weui-article__section" style="margin:5px 5px 5px 5px;font-size:14px">
+                <view class="weui-article__section">
+                    <view class="weui-article__p">
+                        单词学习方法众多，对于学生来说，很难分辨哪些方法是对的。本文将通过数据图，揭示英语单词学习的关键，帮你摆脱对英语单词的迷茫。
+                    </view>
+                    <view class="weui-article__p">
+                        英语单词学习的重点是什么？
+                    </view>
+                    <view class="weui-article__p">
+                        想了解一个人的性格成因，就要了解他经历了什么。同样，想了解英语单词的特点（性格），我们也要了解一下英语经历了什么。首先，我们来看看英语的大事件。
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="1.jpg" mode="aspectFit" style="height:180px" />
+                    </view>
+                    <view class="weui-article__p">
+                        从图中可以看出，英语发展经历了3个大的时期。
+                    </view>
+                    <view class="weui-article__p">
+                        古英语时期：
+                        公元450年左右，日耳曼民族的盎格鲁部落和撒克逊部落来到了英国这片土地，当时他们使用的是日耳曼语（本族语），这是最早的英语。后来，这片土地被称为England(Anglo+land)。
+                    </view>
+                    <view class="weui-article__p">
+                        中古英语时期：
+                        公元1066年左右，法国殖民者攻打英国，经过100年的战争，最终占领英国。这直接导致当时英国的官方语言变成了法语。因为法语是拉丁语的分支，所以法语属于古典语源。至此，英语吸收了大量的古典语源单词。
+                    </view>
+                    <view class="weui-article__p">
+                        现代英语时期：
+                        公元1500年左右，欧洲文艺复兴。科技，艺术蓬勃发展。大量的新事物被发现，被创造。人们需要为这些新事物命名，于是他们大量使用了拉丁语和希腊语的单词。这样，英语又引入和创造了大量的古典语源单词。
+                    </view>
+                    <view class="weui-article__p">
+                      结论：现代英语包含了本族语源和古典语源单词。    
+                    </view>
+                    <view class="weui-article__p">
+                      接着，我们来看看本族语单词和古典语单词在现在英语中的占比。 
+                    </view>
+                    <view class="weui-article__p">
+                        <image class="weui-article__img" src="2.jpg" mode="aspectFit" style="height:180px"/>
+                    </view>
+                    <view class="weui-article__p">
+                      我们惊讶的发现，作为本族语的日耳曼语源单词，在现代英语单词中的占比只有33%，而作为后来引入的古典语源单词，占比竟然达到了56%，真可谓后来者居上。
+                    </view>
+                    <view class="weui-article__p">
+                      结论：古典语源与本族语元比例 63:37
+                    </view>
+                    <view class="weui-article__p">
+                      那这两类单词到底有什么区别呢？为什么不同语源的单词会同时存在？
+                    </view>
+                    <view class="weui-article__p">
+                      本族语单词：大部分是表示日常事物、常用概念等使用率很高的单词。如：yes, many, woman, hand, day等。
+                    </view>
+                    <view class="weui-article__p">
+                      古典语单词：很多单词词形复杂，词义生僻，用来表达抽象概念，复杂概念或专业领域概念。如：constitution(宪法), evacuate(撤离), eccentric(古怪的), cardiovascular(心血管的)等。
+                    </view>
+                    <view class="weui-article__p">
+                      所以，本族语单词在日常学习中可以经常接触到，容易记忆。而古典语单词大多意思抽象，难以理解，加之占比又大，难以记忆。
+                    </view>
+                    <view class="weui-article__p">
+                      结论：古典语源单词才是英语单词学习的重点和难点。
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

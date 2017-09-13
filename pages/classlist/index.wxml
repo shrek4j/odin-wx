@@ -1,0 +1,4 @@
+<view class="page">
+    敬请期待
+    <image mode="aspectFill" src="http://odinseyedict.com/Public/img/logo.png"></image>
+</view>

@@ -17,6 +17,13 @@ Page({
       url: '../morphemelist/index?capital=' + capital
     })
   },
+  searchTopMorphemes: function (e) {
+    var pageNum = e.target.dataset.num
+    console.log('pageNum', pageNum)
+    wx.navigateTo({
+      url: '../morphemelist/index?capital=' + pageNum
+    })
+  },
   showwordlist: function (e) {
     var id = e.target.dataset.mid
     wx.navigateTo({
@@ -24,6 +31,7 @@ Page({
     });
   },
   onLoad: function (options) {
+    /** 
     var capital = options.capital
     if (capital == null || capital == undefined) {
       capital = 'a'
@@ -58,6 +66,6 @@ Page({
         });
       }
     });
-
+    */
   }
 })

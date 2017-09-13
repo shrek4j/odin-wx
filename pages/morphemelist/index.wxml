@@ -1,12 +1,29 @@
 <view class="page">
     <view class="page__bd">
+        <view wx:if="{{dataObj.showType == 0}}">
           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="letterpicker">
-                <button type="default" style="font-size:16px;height:45px;line-height:45px;">选择首字母查询：{{dataObj.capital}}</button>
+                <button type="default" style="font-size:16px;height:45px;line-height:45px;">点击选择首字母查询：{{dataObj.capital}}</button>
             </picker>
-        
+        </view>
+        <view wx:elif="{{dataObj.showType == 1}}">
+          <view class="letterpicker">
+                <view style="font-size:16px;height:45px;line-height:45px;">TOP1-100高频词根</view>
+            </view>
+        </view>
+        <view wx:elif="{{dataObj.showType == 2}}">
+          <view class="letterpicker">
+                <view style="font-size:16px;height:45px;line-height:45px;">TOP101-200高频词根</view>
+            </view>
+        </view>
+        <view wx:elif="{{dataObj.showType == 3}}">
+          <view class="letterpicker">
+                <view style="font-size:16px;height:45px;line-height:45px;">TOP201-300高频词根</view>
+            </view>
+        </view>
         <view class="weui-panel">
             <view class="weui-panel__hd" style="color:#333;">
-              词根列表
+              <view style="display:inline;">词根列表</view>
+              <button open-type="share" style="margin-left:15px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">分享</button>
             </view>
             <view class="weui-panel__hd">
               <view>注：</view>

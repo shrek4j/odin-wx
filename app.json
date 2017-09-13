@@ -5,7 +5,12 @@
     "pages/wordlist/index",
     "pages/similarwordlist/index",
     "pages/morphemelist/index",
-    "pages/searchmorphemelist/index"
+    "pages/searchmorphemelist/index",
+    "pages/articlelist/index",
+    "pages/article/a20170815",
+    "pages/article/a20170511",
+    "pages/classlist/index",
+    "pages/myinfo/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -20,16 +25,23 @@
   "tabBar": {
     "selectedColor": "#1474b9",
     "position":"top",
-    "list": [{
+    "list": [
+    
+    {
       "pagePath": "pages/index/index",
-      "text": "词根搜索",
-      "iconPath": "pages/images/search_normal.png",
-      "selectedIconPath": "pages/images/search_highlight.png"
-    },{
+      "text": "搜索"
+    },
+    {
       "pagePath": "pages/searchmorphemelist/index",
-      "text": "词根列表",
-      "iconPath": "pages/images/list_normal.png",
-      "selectedIconPath": "pages/images/list_highlight.png"
+      "text": "列表"
+    },
+    {
+      "pagePath": "pages/articlelist/index",
+      "text": "文章"
+    },
+    {
+      "pagePath": "pages/classlist/index",
+      "text": "课程"
     }]
   }
 }

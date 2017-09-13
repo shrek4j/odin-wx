@@ -1,0 +1,89 @@
+<view class="page">
+
+    <view class="page__bd">
+        <view class="weui-article">
+            <view style="margin:5px 5px 20px 5px">
+            <view class="weui-article__h1">我为什么要做词根词典网站？</view>
+            <view class="page__desc" style="font-size:12px;">作者：史莱克</view>
+            <view class="page__desc" style="font-size:12px;">公众号：英语课代表史莱克</view>
+            <view class="page__desc" style="font-size:12px;">
+              <button open-type="share" style="padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">分享</button>
+              <button style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">赞 6542</button>
+            </view>
+            </view>
+            <view class="weui-article__section" style="margin:5px 5px 5px 5px;font-size:14px">
+                <view class="weui-article__section">
+                    <view class="weui-article__p quote">
+                      <view>
+                        The first story is about connecting the dots.
+                      </view>
+                      <view>
+                        第一个故事是关于如何把生命中点点滴滴串连起来。
+                      </view>
+                      <view>
+                        --Steve Jobs
+                      </view>
+                    </view>
+                    <view class="weui-article__p">关于词典的想法起源于4年前，当时我还是一名英语老师。</view>
+                    <view class="weui-article__p">我坚信词源才是单词学习的正道，而词根、词缀是词源很重要的一部分。只需掌握一两百个词根词缀，就可以系统地学会几千个单词。</view>
+                    <view class="weui-article__p">所以那时，我想到一本词根词典来辅助教学。但找了很久，都没有找到满意的。绝大部分词典都是以单词为单位，展示中文解释或词源。</view>
+                    <view class="weui-article__p">而我想要的是一本以词根为单位的词典，它应该包含词根的中文解释、重要性排序、词根对应的单词和单词是否常用等功能。</view>
+                    <view class="weui-article__p">虽然最终我没有找到这样一本词典，但它的雏形牢牢地印在了我的心里。也让我每次回想起来都觉得既兴奋又可惜。</view>
+                    <view class="weui-article__p">在教英语的那段时间，我发现很多老师使用一成不变的方法教课，而我每天想的是如何用虚拟游戏提高浸入式学习的体验，如何量化学生未掌握的知识点来定制学习计划。</view>
+                    <view class="weui-article__p">这些使我意识到，教育行业将被计算机和互联网变革。想到这，再想到大学时的C语言和网站制作都是我最感兴趣的课程，学习编程的想法呼之欲出。于是，我做了程序员。转眼就是4年。</view>
+                    <view class="weui-article__p quote">
+                      <view>
+                        Much of what I stumbled into by following my curiosity and intuition turned out to be priceless later on.
+                      </view>
+                      <view>
+                        我跟着我的直觉和好奇心走，遇到的很多东西，此后都被证明是无价之宝。
+                      </view>
+                      <view>
+                        --Steve Jobs
+                      </view>
+                    </view>
+                    <view class="weui-article__p">前段时间，在备考雅思时，我发现英语单词学习依旧和4年前一样，段子、背单词书仍然是单词学习的主要方法。当然也有很多人在用词根词缀进行学习，但是仍然缺乏系统性和准确性。</view>
+                    <view class="weui-article__p">这时，我想起了4年前那个词典的想法。现在我完全可以自己做一个词典，实现我的想法。想到这，我就开始行动了。经过数月的编程、测试，我终于把它做出来了。</view>
+                    <view class="weui-article__p">我和女友给它起了个名字：ODIN'S EYE（奥汀之眼）（起名全过程见文末彩蛋部分）</view>
+                    <view class="weui-article__p">使用ODIN'S EYE词根词典，你可以搜索词根。</view>
+                    <view class="weui-article__p">你可以按列表查看词根和他们的重要性排序。</view>
+                    <view class="weui-article__p">你还可以查看高频词根列表。</view>
+                    <view class="weui-article__p">你也可以查看词根对应的单词、以及单词的常见度。</view>
+                    <view class="weui-article__p">英语学习很像在迷雾中寻找光明，期间要经历很多怀疑。怀疑自己，怀疑学习方法。</view>
+                    <view class="weui-article__p">ODIN'S EYE词根词典基于大数据统计，用数字说话，帮你拨开学习道路上的迷雾，提高单词学习的效率。</view>
+                    <view class="weui-article__p quote">
+                      <view>
+                        You have to trust in something - your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.
+                      </view>
+                      <view>
+                        你必须要相信某些东西：你的勇气、目的、生命、因缘……这个过程从没有令我失望，只是让我的生命更加地与众不同。
+                      </view>
+                      <view>
+                        --Steve Jobs
+                      </view>
+                    </view>
+                    <view class="weui-article__p egg">彩蛋</view>
+                    <view class="weui-article__p">为什么叫ODIN'S EYE（奥汀之眼）？</view>
+                    <view class="weui-article__p">我：咱们一起给网站起个名字吧。</view>
+                    <view class="weui-article__p">女友：好哇~</view>
+                    <view class="weui-article__p">我：我想要一个炫酷狂拽吊炸天的名字。</view>
+                    <view class="weui-article__p">女友：……</view>
+                    <view class="weui-article__p">我：想想别的词典怎么起名的，比如“海词网”……</view>
+                    <view class="weui-article__p">女友：咱们的特点是以词根为主，让大家可以更聪明地背单词。</view>
+                    <view class="weui-article__p">我：我想到了！叫“慧根网”！</view>
+                    <view class="weui-article__p">（女友抡起铁拳捶了我胸口……）</view>
+                    <view class="weui-article__p">我：好好，不叫这个，还是想个炫酷狂拽的吧。</view>
+                    <view class="weui-article__p">女友：能不能从神话故事里找点灵感？</view>
+                    <view class="weui-article__p">我：恩，这个方向好！我想想，和英语民族关联最大的就是北欧神话和希腊神话，日耳曼又是英语的起源，那就从北欧神话中找找灵感吧。</view>
+                    <view class="weui-article__p">女友：你知道《奥汀的祝福》吗？</view>
+                    <view class="weui-article__p">我：我知道奥汀，索尔的父亲嘛</view>
+                    <view class="weui-article__p">女友：……</view>
+                    <view class="weui-article__p">我：北欧神话里，奥汀为了获得智慧，请求喝一口智慧之泉泉水，看守者密米尔同意给奥汀一口泉水，但是要求一只眼睛的代价。奥汀就挖出了自己的右眼，以此换取了一口智慧之泉，从此获得了无人匹敌的智慧。</view>
+                    <view class="weui-article__p">女友：你看网站的logo像不像一只眼睛？</view>
+                    <view class="weui-article__p">我：确实！而且，神话还说，奥汀还运用它的智慧，发明了北欧古字母，如尼文（Rune）。古英语的字母就是从如尼文发展来的！！那就叫奥汀之眼？</view>
+                    <view class="weui-article__p">女友：好，还真有炫酷狂拽的感觉......</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
