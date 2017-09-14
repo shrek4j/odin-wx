@@ -1,7 +1,10 @@
 var base64 = require("../images/base64");
 
-//index.js
-//获取应用实例
+//点赞
+var count = 0;
+var flag = "";
+var articleId = -1
+
 var app = getApp()
 var morphemeId = 1
 var shareType = 0
@@ -58,6 +61,59 @@ Page({
       }
     }
   },
+  toggleThumbup: function () {
+    var sfz = wx.getStorageSync('sfz')
+    var that = this;
+    if (flag == "false") {
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/Thumbup/addThumbup',
+        data: {
+          "articleId": articleId,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "true"
+            count += 1
+            var thumbupClass = "done"
+          }
+          that.setData({
+            count: count,
+            thumbupClass: thumbupClass
+          });
+        }
+      });
+    } else {
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/Thumbup/deleteThumbup',
+        data: {
+          "articleId": articleId,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "false"
+            count -= 1
+            var thumbupClass = "undone"
+          }
+          that.setData({
+            count: count,
+            thumbupClass: thumbupClass
+          });
+        }
+      });
+    }
+  },
   onLoad: function (options) {
     var capital = options.capital
     if(capital == null || capital == undefined){
@@ -92,6 +148,95 @@ Page({
 
         that.setData({
           dataObj: dataObj
+        });
+      }
+    });
+
+  //点赞
+    if (capital == '100') {
+      articleId = 3
+    } else if (capital == '200') {
+      articleId = 4
+    } else if (capital == '300') {
+      articleId = 5
+    } else if (capital == 'a') {
+      articleId = 6
+    } else if (capital == 'b') {
+      articleId = 7
+    } else if (capital == 'c') {
+      articleId = 8
+    } else if (capital == 'd') {
+      articleId = 9
+    } else if (capital == 'e') {
+      articleId = 10
+    } else if (capital == 'f') {
+      articleId = 11
+    } else if (capital == 'g') {
+      articleId = 12
+    } else if (capital == 'h') {
+      articleId = 13
+    } else if (capital == 'i') {
+      articleId = 14
+    } else if (capital == 'j') {
+      articleId = 15
+    } else if (capital == 'k') {
+      articleId = 16
+    } else if (capital == 'l') {
+      articleId = 17
+    } else if (capital == 'm') {
+      articleId = 18
+    } else if (capital == 'n') {
+      articleId = 19
+    } else if (capital == 'o') {
+      articleId = 20
+    } else if (capital == 'p') {
+      articleId = 21
+    } else if (capital == 'q') {
+      articleId = 22
+    } else if (capital == 'r') {
+      articleId = 23
+    } else if (capital == 's') {
+      articleId = 24
+    } else if (capital == 't') {
+      articleId = 25
+    } else if (capital == 'u') {
+      articleId = 26
+    } else if (capital == 'v') {
+      articleId = 27
+    } else if (capital == 'w') {
+      articleId = 28
+    } else if (capital == 'x') {
+      articleId = 29
+    } else if (capital == 'y') {
+      articleId = 30
+    } else if (capital == 'z') {
+      articleId = 31
+    }
+    var sfz = wx.getStorageSync('sfz')
+    var that = this;
+    //TODO 
+    wx.request({
+      url: 'https://odin.bajiaoshan893.com/Thumbup/showThumbupByArticle',
+      data: {
+        "articleId": articleId,
+        'userId': sfz
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var dataObj = JSON.parse(res.data)
+        count = dataObj.cnt
+        flag = dataObj.flg
+        if (flag == "true") {
+          var thumbupClass = "done"
+        } else {
+          var thumbupClass = "undone"
+        }
+
+        that.setData({
+          count: count,
+          thumbupClass: thumbupClass
         });
       }
     });

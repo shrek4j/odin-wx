@@ -16,22 +16,21 @@ App({
                 key: "sfz",
                 data: jsondata.sfz
               })
-              /**
-              wx.getUserInfo({
-                success: function (res) {           
-                  var userInfo = res.userInfo
-                  console.log(userInfo)
-                  var nickName = userInfo.nickName
-                  var avatarUrl = userInfo.avatarUrl
-                  var gender = userInfo.gender //性别 0：未知、1：男、2：女
-                }
-              })
-               */
             }
           })
         } else {
           console.log('获取用户登录态失败！' + res.errMsg)
         }
+      }
+    });
+
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo
+        wx.setStorage({
+          key: "userInfo",
+          data: userInfo
+        })
       }
     });
 

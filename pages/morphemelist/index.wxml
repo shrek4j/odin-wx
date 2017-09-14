@@ -24,6 +24,7 @@
             <view class="weui-panel__hd" style="color:#333;">
               <view style="display:inline;">词根列表</view>
               <button open-type="share" style="margin-left:15px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">分享</button>
+              <button id="thumbupBtn" bindtap="toggleThumbup" class="{{thumbupClass}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;">赞<view id="totalThumbups" style="display:inline">{{count}}</view></button>
             </view>
             <view class="weui-panel__hd">
               <view>注：</view>

@@ -6,6 +6,10 @@
             <view class="weui-article__h1">揭秘英语单词学习的正确方法</view>
             <view class="page__desc" style="font-size:12px;">作者：史莱克</view>
             <view class="page__desc" style="font-size:12px;">公众号：英语课代表史莱克</view>
+            <view class="page__desc" style="font-size:12px;">
+              <button open-type="share" style="padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">分享</button>
+              <button id="thumbupBtn" bindtap="toggleThumbup" class="{{thumbupClass}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;">赞<view id="totalThumbups" style="display:inline">{{count}}</view></button>
+            </view>
             </view>
             <view class="weui-article__section" style="margin:5px 5px 5px 5px;font-size:14px">
                 <view class="weui-article__section">

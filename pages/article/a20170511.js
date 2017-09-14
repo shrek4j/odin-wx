@@ -1,6 +1,58 @@
+var count = 0;
+var flag = "";
 Page({
-  thumpsUp: function(){
-
+  toggleThumbup: function(){
+    var sfz = wx.getStorageSync('sfz')
+    var that = this;
+    if(flag == "false"){
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/Thumbup/addThumbup',
+        data: {
+          "articleId": 1,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "true"
+            count += 1
+            var thumbupClass = "done"
+          }
+          that.setData({
+            count: count,
+            thumbupClass: thumbupClass
+          });
+        }
+      });
+    }else{
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/Thumbup/deleteThumbup',
+        data: {
+          "articleId": 1,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "false"
+            count -= 1
+            var thumbupClass = "undone"
+          }
+          that.setData({
+            count: count,
+            thumbupClass: thumbupClass
+          });
+        }
+      });
+    }
   },
   onShareAppMessage: function () {
     return {
@@ -22,34 +74,31 @@ Page({
     }
   },
   onLoad: function (options) {
+    var sfz = wx.getStorageSync('sfz')
+    var that = this;
     //TODO 
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/Morph/showMorphemesByCapitalJson',
+      url: 'https://odin.bajiaoshan893.com/Thumbup/showThumbupByArticle',
       data: {
-        'capital': capital
+        "articleId": 1,
+        'userId': sfz
       },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        var msg = res.data
-        if (msg == 'noresult') {
-          return;
+        var dataObj = JSON.parse(res.data)
+        count = dataObj.cnt
+        flag = dataObj.flg
+        if(flag == "true"){
+          var thumbupClass = "done"
+        }else{
+          var thumbupClass = "undone"
         }
-        var dataObj = JSON.parse(msg);
-
-        //--转换translation的<br/>
-        var morphList = dataObj.morphList;
-        shareType = dataObj.showType
-        shareCapital = dataObj.capital
-        var num = 1;
-        for (var i = 0; i < morphList.length; i++) {
-          morphList[i]['num'] = num++
-        }
-        //--转换translation的<br/>
 
         that.setData({
-          dataObj: dataObj
+          count: count,
+          thumbupClass: thumbupClass
         });
       }
     });
