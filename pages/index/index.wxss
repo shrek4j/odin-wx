@@ -23,3 +23,7 @@
 .usermotto {
   font-size:14px;
 }
+
+.weui-footer{
+    margin-bottom: 15px;
+}

@@ -88,7 +88,7 @@ Page({
       },
       success: function (res) {
         var dataObj = JSON.parse(res.data)
-        count = dataObj.cnt
+        count = parseInt(dataObj.cnt)
         flag = dataObj.flg
         if (flag == "true") {
           var thumbupClass = "done"

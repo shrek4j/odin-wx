@@ -1,10 +1,12 @@
-var base64 = require("../images/base64");
 
 //index.js
 //获取应用实例
 var app = getApp()
 var morphemeId = 1
+var count = 0;
+var flag = "";
 Page({
+  
   //事件处理函数
   showSimilarWords: function (e) {
     var wId = e.target.dataset.id
@@ -14,10 +16,6 @@ Page({
     })
   },
   onLoad: function (options) {
-    this.setData({
-      icon20: base64.icon20,
-      icon60: base64.icon60
-    });
     morphemeId = options.morphemeId;
     var that = this
     wx.request({
@@ -55,7 +53,38 @@ Page({
           dataObj: dataObj
         });
       }
-    })
+    });
+
+    var sfz = wx.getStorageSync('sfz')
+    //TODO 
+    wx.request({
+      url: 'https://odin.bajiaoshan893.com/CollectRoot/showCollectByRoot',
+      data: {
+        "rootId": morphemeId,
+        'userId': sfz
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        var dataObj = JSON.parse(res.data)
+        count = parseInt(dataObj.cnt)
+        flag = dataObj.flg
+        if (flag == "true") {
+          var collectRootClass = "done"
+          var showText = "已收藏"
+        } else {
+          var collectRootClass = "undone"
+          var showText = "收藏"
+        }
+
+        that.setData({
+          count: count,
+          collectRootClass: collectRootClass,
+          showText: showText
+        });
+      }
+    });
   },
   onShareAppMessage: function () {
     return {
@@ -74,6 +103,61 @@ Page({
           duration: 1500
         })
       }
+    }
+  },
+  toggleCollectRoot: function () {
+    var sfz = wx.getStorageSync('sfz')
+    var that = this;
+    if (flag == "false") {
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/CollectRoot/addCollectRoot',
+        data: {
+          "rootId": morphemeId,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "true"
+            count += 1
+            var collectRootClass = "done"
+          }
+          that.setData({
+            count: count,
+            collectRootClass: collectRootClass,
+            showText:"已收藏"
+          });
+        }
+      });
+    } else {
+      wx.request({
+        url: 'https://odin.bajiaoshan893.com/CollectRoot/deleteCollectRoot',
+        data: {
+          "rootId": morphemeId,
+          'userId': sfz
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          var dataObj = JSON.parse(res.data)
+          var result = dataObj.result
+          if (result == "success") {
+            flag = "false"
+            count -= 1
+            var collectRootClass = "undone"
+          }
+          that.setData({
+            count: count,
+            collectRootClass: collectRootClass,
+            showText: "收藏"
+          });
+        }
+      });
     }
   }
 })

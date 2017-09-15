@@ -12,3 +12,10 @@
   margin-left:15px;
 }
 
+.done{
+  background-color:#f58220;color:white;
+}
+
+.undone{
+  background-color:white;color:#f58220;border: solid #f58220 1px;
+}
