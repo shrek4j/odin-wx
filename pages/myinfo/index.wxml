@@ -3,25 +3,24 @@
         <view class="page__title"></view>
     </view>
     <view class="page__bd">
-
         <view class="weui-cell">
-                <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                    <image src="{{avatarUrl}}" background-size="cover" class="userinfo-avatar"></image>
-                </view>
-                <view class="weui-cell__bd">
-                    <view class="userinfo-nickname">{{nickName}}</view>
-                </view>
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <image src="{{avatarUrl}}" background-size="cover" class="userinfo-avatar"></image>
             </view>
+            <view class="weui-cell__hd">
+                <view class="userinfo-nickname">{{nickName}}</view>
+            </view>
+        </view>
         <view class="weui-cells weui-cells_after-title" style="font-size:14px;">
-            <navigator url="/pages/article/a20170511" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__bd">
-                  关于奥汀之眼
-                </view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
             <navigator url="/pages/collectlist/index" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
                   我的收藏
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="/pages/article/a20170511" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                  关于奥汀之眼
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
