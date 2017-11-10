@@ -38,5 +38,16 @@ App({
    // var logs = wx.getStorageSync('logs') || []
    // logs.unshift(Date.now())
    // wx.setStorageSync('logs', logs)
+  },
+
+  onHide: function(){
+    wx.getBackgroundAudioPlayerState({
+      success: function (res) {
+        var musicPlay = res.status
+        if (musicPlay == 1) {//播放中
+          wx.pauseBackgroundAudio();
+        }
+      }
+    });
   }
 })

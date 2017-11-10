@@ -10,14 +10,20 @@
 <template is="wxSearch" data="{{wxSearchData}}"/>
   
 
-<view  class="userinfo">
-  <image class="userinfo-avatar" src="/pages/index/morphlogo.jpg" background-size="cover"></image>
-  <text class="userinfo-nickname">ODIN'S EYE词根词典</text>
+<view  class="userinfo" style="display:{{showUserInfo}}">
+  <image id="odinIcon" class="userinfo-avatar {{playState}}" bindtap="toggleMusic" src="/pages/index/morphlogo.jpg" background-size="cover"></image>
+  <view wx:if="{{hasMusic == true}}">
+    <text class="music-tip">点击图标播放或暂停</text>
+  </view>
+  <text class="userinfo-nickname">{{brandName}}</text>
 </view> 
 
-<view class="weui-footer weui-footer_fixed-bottom">
-    <view class="weui-footer__text">微信添加朋友shrek4e,加入交流群</view>
-    <view class="weui-footer__text" style="font-size:11px;">添加时请注明“词根”</view>
+<view class="weui-footer weui-footer_fixed-bottom" style="display:{{showFooter}}">
+    <view>
+      <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg"></image>
+    </view>
+    <view class="weui-footer__text">扫描二维码，或加微信shrek4e</view>
+    <view class="weui-footer__text">加入交流群</view>
 </view> 
 
 

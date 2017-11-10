@@ -6,7 +6,22 @@ var morphemeId = 1
 var count = 0;
 var flag = "";
 Page({
-  
+  openExplanation: function (e) {
+    wx.showModal({
+      title: e.target.dataset.word,
+      content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
+      confirmText: "有用",
+      cancelText: "关闭",
+      success: function (res) {
+        console.log(res);
+        if (res.confirm) {
+          console.log('用户点击主操作')
+        } else {
+          console.log('用户点击辅助操作')
+        }
+      }
+    });
+  },
   //事件处理函数
   showSimilarWords: function (e) {
     var wId = e.target.dataset.id

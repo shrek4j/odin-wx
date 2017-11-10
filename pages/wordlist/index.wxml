@@ -32,10 +32,16 @@
                     <view  wx:elif="{{item.freq_level == 5}}" class="weui-badge" style="margin-left: 5px;background-color:#5091d4;">词频：极低</view>
                     <view  wx:if="{{item.all_ielts_freq}}" class="weui-badge" style="margin-left: 10px;background-color:#e41432;">雅思：{{item.all_ielts_freq}}次</view>
                     </view>
-                    <view class="weui-media-box__desc" style="margin-left:0.5em">
+                    <view class="weui-media-box__desc" style="margin-left:0.5em;margin-top:4px;">
+                      <view style="font-size:12px;font-weight:bold;color:black;">释义：</view>
                       <block wx:for="{{item.tranList}}" wx:for-item="item1">
                         <view style="margin-top:0.2em">{{item1}}</view>
                       </block>
+                    </view>
+                    <view wx:if="{{item.learn_by_root}}" class="weui-media-box__desc" style="margin-left:0.5em">
+                        <view style="margin-top:6px">
+                          <view style="font-size:12px;font-weight:bold;color:black;">记忆：</view>{{item.learn_by_root}}
+                        </view>
                     </view>
                     <view class="weui-media-box__info"> 
                         <view class="weui-media-box__info__meta">其他</view>

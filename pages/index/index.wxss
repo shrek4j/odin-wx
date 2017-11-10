@@ -17,7 +17,12 @@
 
 .userinfo-nickname {
   color: #aaa;
-  font-size:14px;
+  font-size:12px;
+}
+
+.music-tip{
+  color: #aaa;
+  font-size:11px;
 }
 
 .usermotto {
@@ -26,4 +31,13 @@
 
 .weui-footer{
     margin-bottom: 15px;
+}
+
+@keyframes rotating{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
+}
+
+.rotate{
+  animation:rotating 10s linear infinite;
 }
