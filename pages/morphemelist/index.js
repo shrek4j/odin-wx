@@ -61,6 +61,12 @@ Page({
       }
     }
   },
+  learnWords: function () {
+    var group = e.target.dataset.group
+    wx.navigateTo({
+      url: '../learnWords/index?group=' + group
+    });
+  },
   toggleThumbup: function () {
     var sfz = wx.getStorageSync('sfz')
     var that = this;
