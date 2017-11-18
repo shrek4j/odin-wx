@@ -11,7 +11,8 @@
     "pages/article/a20170511",
     "pages/classlist/index",
     "pages/myinfo/index",
-    "pages/collectlist/index"
+    "pages/collectlist/index",
+    "pages/learnwords/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

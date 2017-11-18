@@ -61,10 +61,10 @@ Page({
       }
     }
   },
-  learnWords: function () {
+  learnWords: function (e) {
     var group = e.target.dataset.group
     wx.navigateTo({
-      url: '../learnWords/index?group=' + group
+      url: '../learnwords/index?group=' + group
     });
   },
   toggleThumbup: function () {
