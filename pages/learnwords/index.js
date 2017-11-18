@@ -1,11 +1,12 @@
 var base64 = require("../images/base64");
 
 
-Page({ 
-  showwordlist: function (e) {
-    var id = e.target.dataset.mid
-    wx.navigateTo({
-      url: '../wordlist/index?morphemeId=' + id
+Page({
+  toMainPage: function (e) {
+    var progress = e.target.dataset.progress
+    var group = e.target.dataset.group
+    wx.redirectTo({
+      url: '../learnwords/main?progress=' + progress + '&group=' + group
     });
   },
   onLoad: function (options) {

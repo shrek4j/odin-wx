@@ -12,7 +12,8 @@
     "pages/classlist/index",
     "pages/myinfo/index",
     "pages/collectlist/index",
-    "pages/learnwords/index"
+    "pages/learnwords/index",
+    "pages/learnwords/main"
   ],
   "window":{
     "backgroundTextStyle":"light",
