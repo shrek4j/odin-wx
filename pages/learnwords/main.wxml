@@ -1,22 +1,23 @@
-<view style="display:block;width:100%;height:100%;margin:0;position:absolute;background-color:#33AAFF;">
+<view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#33AAFF;">
  
 <view wx:if="{{dataObj.isFinished=='false'}}">
-  <view style='margin:50px 30px 80px 30px;padding:50px 30px 60px 30px;background-color:white;border-radius: 5px;'>
+  <view style='margin:50px 30px 50px 30px;padding:40px 30px 40px 30px;background-color:white;border-radius: 5px;'>
    
     <view style='text-align:center;font-size:28px;'>{{dataObj.nextWord[0].word}}</view>
-    释义：
+    <view style='text-align:center;margin-top:10px;font-size:14px;'>
     <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
-      <view style="margin-top:0.2em;font-size:16px;">{{item1}}</view>
+      <view style="margin-top:0.2em;">{{item1}}</view>
     </view>
-    词根：
+    </view>
+    <view style='font-size:12px;margin-top:20px;'>词根：</view>
     <block wx:for="{{dataObj.roots}}">
-      <view style='font-size:16px;'>
+      <view style='font-size:14px;'>
         {{item.word_root}}:
         {{item.meaning}}
       </view>
     </block>
-    记忆：
-    {{dataObj.nextWord[0].learn_by_root}}
+    <view style='font-size:12px;margin-top:20px;'>记忆：</view>
+    <view style='font-size:14px;'>{{dataObj.nextWord[0].learn_by_root}}</view>
   </view>
   </view>
   <view wx:elif="{{dataObj.isFinished=='true'}}">恭喜完成学习！</view>
