@@ -1,24 +1,44 @@
 <view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#33AAFF;">
- 
-<view wx:if="{{dataObj.isFinished=='false'}}">
-  <view style='margin:50px 30px 50px 30px;padding:40px 30px 40px 30px;background-color:white;border-radius: 5px;'>
-   
-    <view style='text-align:center;font-size:28px;'>{{dataObj.nextWord[0].word}}</view>
-    <view style='text-align:center;margin-top:10px;font-size:14px;'>
-    <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
-      <view style="margin-top:0.2em;">{{item1}}</view>
-    </view>
-    </view>
-    <view style='font-size:12px;margin-top:20px;'>词根：</view>
-    <block wx:for="{{dataObj.roots}}">
-      <view style='font-size:14px;'>
-        {{item.word_root}}:
-        {{item.meaning}}
+
+  <view wx:if="{{dataObj.isFinished=='false'}}">
+    <view class="weui-progress">
+      <view class="weui-progress__bar">
+        <progress percent="{{dataObj.percent}}" stroke-width="3" />
       </view>
-    </block>
-    <view style='font-size:12px;margin-top:20px;'>记忆：</view>
-    <view style='font-size:14px;'>{{dataObj.nextWord[0].learn_by_root}}</view>
-  </view>
+    </view>
+    <view style='margin-top:3%;text-align:center;font-size:16px;'>
+        <text style='color:white;'>{{dataObj.todayLearntCount}}/{{dataObj.portionPerDay}}</text>
+      </view>
+    <view style='margin:5% 8% 5% 8%;padding:7% 6% 8% 6%;background-color:white;border-radius: 5px;'>
+      <view style='text-align:center;font-size:30px;'>{{dataObj.nextWord[0].word}}</view>
+      <view style='text-align:center;margin-top:2%;font-size:14px;'>
+      <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
+        <view style="margin-top:0.2em;">{{item1}}</view>
+      </view>
+      </view>
+      <view style='font-size:14px;margin-top:10%;'>
+        <block wx:for="{{dataObj.roots}}">
+          <view style='margin-top:2%;' wx:if="{{item.morpheme_type==0}}"><view class="weui-badge" style="background-color:#f15a22; border-radius:3px;height:16px;line-height:16px;">词根</view><text style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
+          <view style='margin-top:2%;' wx:elif="{{item.morpheme_type==1}}"><view class="weui-badge" style="background-color:#fcaf17;border-radius:3px;height:16px;line-height:16px;">前缀</view><text style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
+        </block>
+      </view>
+      <view style='margin-top:10%;'>
+        <view class="weui-badge" style="background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;">词根助记</view>
+        <view style='font-size:14px;'>{{dataObj.nextWord[0].learn_by_root}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+        <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
+          <view style='margin-top:2%;margin-left:30%;text-align:center;color:#33CCFF;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:white;box-shadow: 0px 0px 20px 1px #555555;font-size:16px;'>
+            <view bindtap='toMainPage' data-wordId="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
+          </view>
+        </view>
+        <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
+          <view style='margin-top:2%;margin-right:30%;text-align:center;color:#33CCFF;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:white;box-shadow: 0px 0px 20px 1px #555555;font-size:16px;'>
+            <view bindtap='toMainPage' data-wordId="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
+          </view>
+        </view>
+      </view>
   </view>
   <view wx:elif="{{dataObj.isFinished=='true'}}">恭喜完成学习！</view>
 </view>

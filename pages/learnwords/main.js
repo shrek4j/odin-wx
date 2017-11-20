@@ -44,20 +44,6 @@ Page({
         }
         //--转换translation的<br/>
 
-        //
-        var word = dataObj.nextWord[0].word
-        var roots = []
-        for(var i=0;i<dataObj.roots.length;i++){
-          var word_root = dataObj.roots[i].word_root.replace(/-/g, '')
-          var word_roots = word_root.split(',')
-          for(var j=0;j<word_roots.length;j++){
-            roots[roots.length] = word_roots[j]
-          }
-        }
-
-
-        //
-
         that.setData({
           dataObj: dataObj
         });
