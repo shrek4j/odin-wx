@@ -29,13 +29,13 @@
     </view>
     <view class="weui-flex">
         <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-left:30%;text-align:center;color:#33CCFF;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:white;box-shadow: 0px 0px 20px 1px #555555;font-size:16px;'>
-            <view bindtap='toMainPage' data-wordId="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
+          <view style='margin-top:2%;margin-left:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#f58220;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+            <view bindtap='doLearn' data-wordid="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
           </view>
         </view>
         <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-right:30%;text-align:center;color:#33CCFF;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:white;box-shadow: 0px 0px 20px 1px #555555;font-size:16px;'>
-            <view bindtap='toMainPage' data-wordId="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
+          <view style='margin-top:2%;margin-right:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#45b97c;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+            <view bindtap='doLearn' data-wordid="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
           </view>
         </view>
       </view>

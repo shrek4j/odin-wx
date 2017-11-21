@@ -5,7 +5,7 @@ Page({
   toMainPage: function (e) {
     var progress = e.target.dataset.progress
     var group = e.target.dataset.group
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../learnwords/main?progress=' + progress + '&group=' + group
     });
   },

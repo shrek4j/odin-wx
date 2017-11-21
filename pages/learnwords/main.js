@@ -2,10 +2,12 @@ var base64 = require("../images/base64");
 
 
 Page({ 
-  showwordlist: function (e) {
-    var id = e.target.dataset.mid
-    wx.navigateTo({
-      url: '../wordlist/index?morphemeId=' + id
+  doLearn: function (e) {
+    var group = e.target.dataset.group
+    var wordId = e.target.dataset.wordid
+    var status = e.target.dataset.status
+    wx.redirectTo({
+      url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status  
     });
   },
   onLoad: function (options) {
@@ -14,6 +16,8 @@ Page({
       group = 1
     }
     var progress = options.progress
+    var wordId = options.wordId
+    var status = options.status
 
     var sfz = wx.getStorageSync('sfz')
     var that = this;
@@ -23,8 +27,8 @@ Page({
         'userId': sfz,
         'group': group,
         'progress': progress,
-        'wordId': null,
-        'status':null
+        'wordId': wordId,
+        'status': status
       },
       header: {
         'content-type': 'application/json'
