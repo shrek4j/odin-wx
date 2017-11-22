@@ -11,6 +11,14 @@ Page({
       url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status + '&portionToday=' + portionToday 
     });
   },
+  playAudio: function(e){
+    var word = e.target.dataset.word
+    wx.playBackgroundAudio({
+      dataUrl: "http://oztas5d9g.bkt.clouddn.com/audio/word/" + word + ".mp3",
+      title: '',
+      coverImgUrl: ''
+    })
+  },
   onLoad: function (options) {
     var group = options.group
     if (group == null || group == undefined){

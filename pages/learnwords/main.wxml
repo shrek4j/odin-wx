@@ -23,7 +23,7 @@
 
     <!-- 学习页 -->
     <view style='margin:5% 8% 5% 8%;padding:7% 6% 8% 6%;background-color:white;border-radius: 5px;'>
-      <view style='text-align:center;font-size:30px;'>{{dataObj.nextWord[0].word}}</view>
+      <view bindtap="playAudio" data-word="{{dataObj.nextWord[0].word}}" style='text-align:center;font-size:30px;'>{{dataObj.nextWord[0].word}}</view>
       <view style='text-align:center;margin-top:2%;font-size:14px;'>
       <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
         <view style="margin-top:0.2em;">{{item1}}</view>
