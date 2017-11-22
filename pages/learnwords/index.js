@@ -5,9 +5,13 @@ Page({
   toMainPage: function (e) {
     var progress = e.target.dataset.progress
     var group = e.target.dataset.group
+    var portionToday = e.target.dataset.portion
     wx.navigateTo({
-      url: '../learnwords/main?progress=' + progress + '&group=' + group
+      url: '../learnwords/main?progress=' + progress + '&group=' + group + '&portionToday=' + portionToday 
     });
+  },
+  onShow: function (options) {
+    wx.startPullDownRefresh();
   },
   onLoad: function (options) {
     var group = options.group

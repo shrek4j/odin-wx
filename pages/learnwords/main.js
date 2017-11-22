@@ -6,8 +6,9 @@ Page({
     var group = e.target.dataset.group
     var wordId = e.target.dataset.wordid
     var status = e.target.dataset.status
+    var portionToday = e.target.dataset.portion
     wx.redirectTo({
-      url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status  
+      url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status + '&portionToday=' + portionToday 
     });
   },
   onLoad: function (options) {
@@ -18,6 +19,7 @@ Page({
     var progress = options.progress
     var wordId = options.wordId
     var status = options.status
+    var portionToday = options.portionToday
 
     var sfz = wx.getStorageSync('sfz')
     var that = this;
@@ -28,7 +30,8 @@ Page({
         'group': group,
         'progress': progress,
         'wordId': wordId,
-        'status': status
+        'status': status,
+        'portionToday': portionToday
       },
       header: {
         'content-type': 'application/json'
@@ -38,13 +41,15 @@ Page({
         var dataObj = JSON.parse(msg);
 
         //--转换translation的<br/>
-        var trans = dataObj.nextWord[0].translation
-        var tranArr = trans.split('<br/>')
-        if (tranArr == null || tranArr == undefined || tranArr == '' || tranArr.length == 0) {
-          //do nothing
-        } else {
-          tranArr = tranArr.slice(0, tranArr.length - 1)
-          dataObj.nextWord[0].tranList = tranArr
+        if (dataObj.nextWord != null && dataObj.nextWord.length != 0){
+          var trans = dataObj.nextWord[0].translation
+          var tranArr = trans.split('<br/>')
+          if (tranArr == null || tranArr == undefined || tranArr == '' || tranArr.length == 0) {
+            //do nothing
+          } else {
+            tranArr = tranArr.slice(0, tranArr.length - 1)
+            dataObj.nextWord[0].tranList = tranArr
+          }
         }
         //--转换translation的<br/>
 
