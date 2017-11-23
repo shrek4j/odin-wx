@@ -11,6 +11,18 @@ Page({
       url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status + '&portionToday=' + portionToday 
     });
   },
+  toRootPage : function (e) {
+    var rootid = e.target.dataset.rootid
+    wx.navigateTo({
+      url: '../wordlist/index?morphemeId=' + rootid
+    });
+  },
+  toSimilarWordsPage : function (e){
+    var wId = e.target.dataset.wordid
+    wx.navigateTo({
+      url: '../similarwordlist/index?wId=' + wId
+    })
+  },
   playAudio: function(e){
     var word = e.target.dataset.word
     wx.playBackgroundAudio({
@@ -48,18 +60,39 @@ Page({
         var msg = res.data
         var dataObj = JSON.parse(msg);
 
-        //--转换translation的<br/>
-        if (dataObj.nextWord != null && dataObj.nextWord.length != 0){
-          var trans = dataObj.nextWord[0].translation
-          var tranArr = trans.split('<br/>')
-          if (tranArr == null || tranArr == undefined || tranArr == '' || tranArr.length == 0) {
-            //do nothing
-          } else {
-            tranArr = tranArr.slice(0, tranArr.length - 1)
-            dataObj.nextWord[0].tranList = tranArr
+        if (dataObj.isFinished == 'false' || dataObj.isFinished == 'todayCrazy'){
+          //--转换translation的<br/>
+          if (dataObj.nextWord != null && dataObj.nextWord.length != 0){
+            var trans = dataObj.nextWord[0].translation
+            var tranArr = trans.split('<br/>')
+            if (tranArr == null || tranArr == undefined || tranArr == '' || tranArr.length == 0) {
+              //do nothing
+            } else {
+              tranArr = tranArr.slice(0, tranArr.length - 1)
+              dataObj.nextWord[0].tranList = tranArr
+            }
           }
+          //--转换translation的<br/>
+          
+          //转换词根
+          for (var i = 0; i < dataObj.roots.length;i++){
+            if(dataObj.roots[i].true_root == null){
+              dataObj.roots[i].true_root = dataObj.roots[i].word_root
+            }
+          }
+
+          //当前是第几个
+          dataObj.thisOneNum = parseInt(dataObj.todayLearntCount) + 1
         }
-        //--转换translation的<br/>
+
+        if (dataObj.isFinished == 'todayTrue'){
+          // 使用 wx.createContext 获取绘图上下文 context
+          var ctx = wx.createCanvasContext('shareTodayCanvas')
+
+          ctx.setFontSize(20)
+          ctx.fillText('Hello', 150, 150)
+          ctx.draw()
+        }
 
         that.setData({
           dataObj: dataObj

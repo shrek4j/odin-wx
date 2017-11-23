@@ -10,9 +10,6 @@ Page({
       url: '../learnwords/main?progress=' + progress + '&group=' + group + '&portionToday=' + portionToday 
     });
   },
-  onShow: function (options) {
-    wx.startPullDownRefresh();
-  },
   onLoad: function (options) {
     var group = options.group
     if (group == null || group == undefined){
