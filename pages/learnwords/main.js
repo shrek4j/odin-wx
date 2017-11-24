@@ -1,6 +1,5 @@
 var base64 = require("../images/base64");
 
-
 Page({ 
   doLearn: function (e) {
     var group = e.target.dataset.group
@@ -86,12 +85,42 @@ Page({
         }
 
         if (dataObj.isFinished == 'todayTrue'){
-          // 使用 wx.createContext 获取绘图上下文 context
-          var ctx = wx.createCanvasContext('shareTodayCanvas')
+          //2. canvas绘制文字和图片
+          var ctx = wx.createCanvasContext('myCanvas')
+          
+          var qrPath = '../images/miniqr.jpg'
+          var bgImgPath = '../images/bg1.jpg';
+
+          ctx.drawImage(bgImgPath, 0, 0, 500, 800);
+
+          ctx.setFillStyle('#33CCFF')
+          ctx.fillRect(0, 590, 500, 210);
+
+          ctx.drawImage(qrPath, 350, 620, 130, 150);
+
+          ctx.setFontSize(22)
+          ctx.setFillStyle('#111111')
+          ctx.fillText('已坚持学习', 80, 90)
+          ctx.setFontSize(38)
+          ctx.fillText(dataObj.learnDaysCount, 120, 138)
+          ctx.setFontSize(22)
+          ctx.fillText('Days', 110, 165)
+
+          ctx.setFontSize(22)
+          ctx.fillText('已学习单词', 310, 90)
+          ctx.setFontSize(38)
+          ctx.fillText(dataObj.learntCount, 340, 138)
+          ctx.setFontSize(22)
+          ctx.fillText('Words', 330, 165)
 
           ctx.setFontSize(20)
-          ctx.fillText('Hello', 150, 150)
-          ctx.draw()
+          ctx.setFillStyle('white')
+          ctx.fillText('长 按 识 别 二 维 码 学 习', 65, 650)
+          ctx.setFontSize(34)
+          ctx.fillText('奥汀之眼词根学单词', 25, 705)
+          ctx.setFontSize(21)
+          ctx.fillText('来这里，用最聪明的方法记单词！', 24, 750)
+          ctx.draw();
         }
 
         that.setData({
@@ -99,5 +128,48 @@ Page({
         });
       }
     });
+  },
+
+  saveSharePic : function (e){
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: 500,
+      height: 800,
+      destWidth: 500,
+      destHeight: 800,
+      canvasId: 'myCanvas',
+      success: function (res) {
+        console.log(res.tempFilePath);
+
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success(res) {
+            wx.showModal({
+              title: '存图成功',
+              content: '图片成功保存到相册了，去发圈噻~',
+              showCancel: false,
+              confirmText: '好哒',
+              confirmColor: '#72B9C3',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定');
+                }
+                that.hideShareImg()
+              }
+            })
+          },
+          fail: function (res) {
+            console.log(res)
+          }
+        })
+        
+      },
+      fail: function (res) {
+        console.log(res)
+      }
+    });
+    
   }
+
 })

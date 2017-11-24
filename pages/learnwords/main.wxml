@@ -1,66 +1,75 @@
-<scroll-view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#33AAFF;" scroll-y="true">
-
-  <view wx:if="{{dataObj.isFinished=='false' || dataObj.isFinished=='todayCrazy'}}">
-    
-    <!-- 进度条 -->
-    <view wx:if="{{dataObj.isFinished=='false'}}">
-      <view class="weui-progress">
-        <view class="weui-progress__bar">
-          <progress percent="{{dataObj.percent}}" stroke-width="3" />
-        </view>
-      </view>
-      <view style='margin-top:4%;text-align:center;font-size:16px;'>
-        <text style='color:white;'>{{dataObj.todayLearntCount}}/{{dataObj.portionToday}}</text>
+<view wx:if="{{dataObj.isFinished=='false' || dataObj.isFinished=='todayCrazy'}}">
+  <scroll-view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#33AAFF;" scroll-y="true">
+  <!-- 进度条 -->
+  <view wx:if="{{dataObj.isFinished=='false'}}">
+    <view class="weui-progress">
+      <view class="weui-progress__bar">
+        <progress percent="{{dataObj.percent}}" stroke-width="3" />
       </view>
     </view>
-    <view wx:if="{{dataObj.isFinished=='todayCrazy'}}">
-      <view style='margin-top:4%;font-size:16px;color:white;text-align:center;'>
-        「无尽模式」 <text style='color:white;font-size:16px;'>第<text style='font-size:16px;'>{{dataObj.thisOneNum}}</text>个</text>
-      </view>
+    <view style='margin-top:4%;text-align:center;font-size:16px;'>
+      <text style='color:white;'>{{dataObj.todayLearntCount}}/{{dataObj.portionToday}}</text>
     </view>
-
-
-    <!-- 学习页 -->
-    <view style='margin:4% 8% 5% 8%;padding:6% 6% 8% 6%;background-color:white;border-radius: 5px;'>
-      <view style='text-align:center;font-size:30px;'>
-        <text bindtap="playAudio" data-word="{{dataObj.nextWord[0].word}}">{{dataObj.nextWord[0].word}}</text>
-        <text bindtap="toSimilarWordsPage" data-wordid="{{dataObj.nextWord[0].id}}" style='color:gray;margin-left:10px;font-size:30px;'>></text>
-      </view>
-      <view style='text-align:center;margin-top:2%;font-size:14px;'>
-      <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
-        <view style="margin-top:0.2em;">{{item1}}</view>
-      </view>
-      </view>
-      <view style='font-size:14px;margin-top:7%;'>
-        <block wx:for="{{dataObj.roots}}">
-          <view style='margin-top:2%;' wx:if="{{item.morpheme_type==0}}"><view class="weui-badge" style="background-color:#f15a22; border-radius:3px;height:16px;line-height:16px;">词根</view><text bindtap="toRootPage" data-rootid="{{item.id}}" style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
-          <view style='margin-top:2%;' wx:elif="{{item.morpheme_type==1}}"><view class="weui-badge" style="background-color:#fcaf17;border-radius:3px;height:16px;line-height:16px;">前缀</view><text bindtap="toRootPage" data-rootid="{{item.id}}" style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
-        </block>
-      </view>
-      <view style='margin-top:7%;'>
-        <view class="weui-badge" style="background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;">词根助记</view>
-        <view style='font-size:14px;'>{{dataObj.nextWord[0].learn_by_root}}</view>
-      </view>
+  </view>
+  <view wx:if="{{dataObj.isFinished=='todayCrazy'}}">
+    <view style='margin-top:4%;font-size:16px;color:white;text-align:center;'>
+      「无尽模式」 <text style='color:white;font-size:16px;'>第<text style='font-size:16px;'>{{dataObj.thisOneNum}}</text>个</text>
     </view>
-    <view class="weui-flex">
-        <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-left:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#f58220;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
-            <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
-          </view>
-        </view>
-        <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-right:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#45b97c;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
-            <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
-          </view>
-        </view>
-      </view>
   </view>
 
+
+  <!-- 学习页 -->
+  <view style='margin:4% 8% 5% 8%;padding:6% 6% 8% 6%;background-color:white;border-radius: 5px;'>
+    <view style='text-align:center;font-size:30px;'>
+      <text bindtap="playAudio" data-word="{{dataObj.nextWord[0].word}}">{{dataObj.nextWord[0].word}}</text>
+      <text bindtap="toSimilarWordsPage" data-wordid="{{dataObj.nextWord[0].id}}" style='color:gray;margin-left:10px;font-size:30px;'>></text>
+    </view>
+    <view style='text-align:center;margin-top:2%;font-size:14px;'>
+    <view wx:for="{{dataObj.nextWord[0].tranList}}" wx:for-item="item1">
+      <view style="margin-top:0.2em;">{{item1}}</view>
+    </view>
+    </view>
+    <view style='font-size:14px;margin-top:7%;'>
+      <block wx:for="{{dataObj.roots}}">
+        <view style='margin-top:2%;' wx:if="{{item.morpheme_type==0}}"><view class="weui-badge" style="background-color:#f15a22; border-radius:3px;height:16px;line-height:16px;">词根</view><text bindtap="toRootPage" data-rootid="{{item.id}}" style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
+        <view style='margin-top:2%;' wx:elif="{{item.morpheme_type==1}}"><view class="weui-badge" style="background-color:#fcaf17;border-radius:3px;height:16px;line-height:16px;">前缀</view><text bindtap="toRootPage" data-rootid="{{item.id}}" style='height:16px;line-height:16px;margin-left:10px;'>{{item.true_root}} : {{item.meaning}}（{{item.meaning_cn}}）</text></view>
+      </block>
+    </view>
+    <view style='margin-top:7%;'>
+      <view class="weui-badge" style="background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;">词根助记</view>
+      <view style='font-size:14px;'>{{dataObj.nextWord[0].learn_by_root}}</view>
+    </view>
+  </view>
+  <view class="weui-flex">
+      <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
+        <view style='margin-top:2%;margin-left:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#f58220;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+          <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
+        </view>
+      </view>
+      <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
+        <view style='margin-top:2%;margin-right:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#45b97c;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+          <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
   <view wx:elif="{{dataObj.isFinished=='todayTrue'}}">
-    <canvas canvas-id="shareTodayCanvas" style="background-color:white;display:block;width:100%;height:100%;margin:0;position:fixed;"/>
+    <view>
+      <image mode="widthFix" style="margin:0px;width: 100%; height: 100%; position:absolute;z-index:-1" src="../images/bg1.jpg"></image>
+      
+      <view style='padding-top:50px;'>
+        <view class="weui-flex">
+          <view class="weui-flex__item" style='text-align:center;font-size:16px;border-width:0px 1px 0px 0px;border-style:solid;border-color:#d3d7d4;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
+          <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text >个</text></view></view>
+        </view>
+      </view>
+      
+      <canvas canvas-id="myCanvas" style="left:5000px;width:500px;height:800px;"/>
+    </view>
   </view>
 
   <view wx:elif="{{dataObj.isFinished=='true'}}">
     恭喜完成学习！
   </view>
-</scroll-view>
