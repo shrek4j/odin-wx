@@ -84,6 +84,9 @@ Page({
           dataObj.thisOneNum = parseInt(dataObj.todayLearntCount) + 1
         }
 
+        var week = new Date().getDay();
+
+        /**
         if (dataObj.isFinished == 'todayTrue'){
           //2. canvas绘制文字和图片
           var ctx = wx.createCanvasContext('myCanvas')
@@ -122,9 +125,11 @@ Page({
           ctx.fillText('来这里，用最聪明的方法记单词！', 24, 750)
           ctx.draw();
         }
+         */
 
         that.setData({
-          dataObj: dataObj
+          dataObj: dataObj,
+          week:week
         });
       }
     });
