@@ -85,7 +85,6 @@ Page({
         }
 
         var week = new Date().getDay();
-
         /**
         if (dataObj.isFinished == 'todayTrue'){
           //2. canvas绘制文字和图片

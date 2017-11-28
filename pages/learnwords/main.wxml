@@ -60,21 +60,17 @@
     <!-- <canvas canvas-id="myCanvas" style="width:500px;height:800px;z-index:-1000"/> -->
     <view wx:if="{{week==1}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/4.jpg"></image>
         
-        <view style='padding-top:120rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:550rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:8% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>It is not the years in your life that count, it's the life in your years.</view>
+            <view style='margin-top:3%;'>到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。</view>
           </view>
         </view>
       </view>
@@ -82,43 +78,35 @@
     
     <view wx:elif="{{week==2}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="display:absolute;width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/6.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:8% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>If you shed tears when you miss the sun, you also miss the stars.</view>
+            <view style='margin-top:3%;'>如果你因失去了太阳而流泪，那么你也将失去群星了。</view>
           </view>
         </view>
       </view>
     </view>
 
     <view wx:elif="{{week==3}}">
-      <view style='color:white;'>
+      <view style='color:black;'>
         <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>A year from now you will wish you had started today.</view>
+            <view style='margin-top:3%;'>一年后的你会希望现在的你有所行动。</view>
           </view>
         </view>
       </view>
@@ -126,21 +114,17 @@
 
     <view wx:elif="{{week==4}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/5.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>Every human being is intended to have a character of his own; to be what no others are, and to do what no other can do.</view>
+            <view style='margin-top:3%;'>每个人都应有其独特的性格，做无可替代的自己，做独一无二的事情。</view>
           </view>
         </view>
       </view>
@@ -148,21 +132,17 @@
 
     <view wx:elif="{{week==5}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/2.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>When the whole world is silent, even one voice becomes powerful.</view>
+            <view style='margin-top:3%;'>当全世界都安静时，即便一个声音也很有力量。</view>
           </view>
         </view>
       </view>
@@ -170,21 +150,17 @@
 
     <view wx:elif="{{week==6}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/8.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:25%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>The most common way people give up their power is by thinking they don’t have any.</view>
+            <view style='margin-top:3%;'>人们放弃自己力量的最普遍方式，是认为自己没有力量。</view>
           </view>
         </view>
       </view>
@@ -192,21 +168,17 @@
 
     <view wx:elif="{{week==0}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/10.jpg"></image>
         
-        <view style='padding-top:680rpx;'>
+        <view style='padding-top:10%;'>
           <view class="weui-flex">
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:50rpx 70rpx 0rpx 70rpx;font-size:12px;font-family:Verdana;'>
-            <view style='font-size:14px;'>
-              It is not the years in your life that count, it's the life in your years.
-            </view>
-            <view style='margin-top:20rpx;'>
-              到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。--亚伯拉罕·林肯
-            </view>
+          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+            <view style='font-size:14px;'>If you are not willing to risk the unusual, you will have to settle for the ordinary.</view>
+            <view style='margin-top:3%;'>如果你不愿冒险做不一样的事，你就得像平庸妥协。</view>
           </view>
         </view>
       </view>
@@ -215,6 +187,24 @@
   </view>
 
   <view wx:elif="{{dataObj.isFinished=='true'}}">
-    恭喜完成学习！
+    <view style='color:white;'>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/11.jpg"></image>
+        
+        <view style='padding:10% 8% 0% 8%;font-size:12px;font-family:Verdana;text-align:center;'>
+          <view style='font-size:20px;'>恭喜完成此阶段的学习！</view>
+        </view>
+
+        <view style='margin-top:8%;'>
+          <view class="weui-flex">
+            <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">坚持学习</view><view><text style='font-size:22px;'>{{dataObj.learnDaysCount}}</text><text>天</text></view></view>
+            <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">无尽模式</view><view><text style='font-size:22px;'>{{dataObj.crazyDaysCount}}</text><text>天</text></view></view>
+          </view>
+          <view class="weui-flex" style="margin-top:5%">
+            <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">共学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
+            <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">一天最多学过</view><view><text style='font-size:22px;'>{{dataObj.mostOneDayCount}}</text><text>个</text></view></view>
+          </view>
+        </view>
+
+      </view>
   </view>
 </view>
