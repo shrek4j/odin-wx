@@ -7,7 +7,14 @@ Page({
     var status = e.target.dataset.status
     var portionToday = e.target.dataset.portion
     wx.redirectTo({
-      url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status + '&portionToday=' + portionToday 
+      url: '../learnwords/main?progress=next&group=' + group + '&wordId=' + wordId + '&status=' + status + '&portionToday=' + portionToday
+    });
+  },
+  goCrazy: function (e) {
+    var group = e.target.dataset.group
+    var portionToday = e.target.dataset.portion
+    wx.redirectTo({
+      url: '../learnwords/main?progress=goCrazy&group=' + group + '&portionToday=' + portionToday
     });
   },
   toRootPage : function (e) {
@@ -15,6 +22,11 @@ Page({
     wx.navigateTo({
       url: '../wordlist/index?morphemeId=' + rootid
     });
+  },
+  goBack : function (e) {
+    wx.navigateBack({
+      delta: 2
+    })
   },
   toSimilarWordsPage : function (e){
     var wId = e.target.dataset.wordid

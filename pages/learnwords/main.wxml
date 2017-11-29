@@ -1,6 +1,6 @@
 <view class="page">
   <view wx:if="{{dataObj.isFinished=='false' || dataObj.isFinished=='todayCrazy'}}">
-    <scroll-view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#33AAFF;" scroll-y="true">
+    <scroll-view style="display:block;width:100%;height:100%;margin:0;position:fixed;background-color:#77CCFF;" scroll-y="true">
     <!-- 进度条 -->
     <view wx:if="{{dataObj.isFinished=='false'}}">
       <view class="weui-progress">
@@ -43,12 +43,12 @@
     </view>
     <view class="weui-flex">
         <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-left:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#f58220;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+          <view style='margin-top:2%;margin-left:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#66CC66;box-shadow: 0px 0px 10px -2px #000000;font-size:16px;'>
             <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="0" data-group="{{dataObj.group}}">需复习</view>
           </view>
         </view>
         <view class="weui-flex__item" style='display: flex;flex-direction: column;align-items: center;'>
-          <view style='margin-top:2%;margin-right:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#45b97c;box-shadow: 0px 0px 10px -2px #222222;font-size:16px;'>
+          <view style='margin-top:2%;margin-right:30%;text-align:center;color:white;width: 80px;height: 80px;border-radius: 50%;line-height:80px;background-color:#66CCFF;box-shadow: 0px 0px 10px -2px #000000;font-size:16px;'>
             <view bindtap='doLearn' data-portion="{{dataObj.portionToday}}" data-wordid="{{dataObj.nextWord[0].id}}" data-status="1" data-group="{{dataObj.group}}">已学会</view>
           </view>
         </view>
@@ -68,10 +68,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:8% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:8% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>It is not the years in your life that count, it's the life in your years.</view>
             <view style='margin-top:3%;'>到头来，你活了多少岁不算什么，重要的是，你是如何度过这些岁月的。</view>
           </view>
+          
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -86,10 +98,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:8% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:8% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>If you shed tears when you miss the sun, you also miss the stars.</view>
             <view style='margin-top:3%;'>如果你因失去了太阳而流泪，那么你也将失去群星了。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -104,10 +128,23 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:6% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>A year from now you will wish you had started today.</view>
             <view style='margin-top:3%;'>一年后的你会希望现在的你有所行动。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
+          
         </view>
       </view>
     </view>
@@ -122,10 +159,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:6% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>Every human being is intended to have a character of his own; to be what no others are, and to do what no other can do.</view>
             <view style='margin-top:3%;'>每个人都应有其独特的性格，做无可替代的自己，做独一无二的事情。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -140,10 +189,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:6% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>When the whole world is silent, even one voice becomes powerful.</view>
             <view style='margin-top:3%;'>当全世界都安静时，即便一个声音也很有力量。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -158,10 +219,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:6% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>The most common way people give up their power is by thinking they don’t have any.</view>
             <view style='margin-top:3%;'>人们放弃自己力量的最普遍方式，是认为自己没有力量。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -176,10 +249,22 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">已学习单词</view><view><text style='font-size:22px;'>{{dataObj.learntCount}}</text><text>个</text></view></view>
             
           </view>
-          <view style='margin:6% 8% 0% 8%;font-size:12px;font-family:Verdana;'>
+          <view style='margin:6% 8% 0% 8%;font-size:14px;font-family:Verdana;'>
             <view style='font-size:14px;'>If you are not willing to risk the unusual, you will have to settle for the ordinary.</view>
             <view style='margin-top:3%;'>如果你不愿冒险做不一样的事，你就得像平庸妥协。</view>
           </view>
+
+          <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
+              </view>
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 5%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
+
         </view>
       </view>
     </view>
@@ -190,8 +275,8 @@
     <view style='color:white;'>
         <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/11.jpg"></image>
         
-        <view style='padding:10% 8% 0% 8%;font-size:12px;font-family:Verdana;text-align:center;'>
-          <view style='font-size:20px;'>恭喜完成此阶段的学习！</view>
+        <view style='padding:10% 8% 0% 8%;font-size:14px;font-family:Verdana;text-align:center;'>
+          <view style='font-size:20px;'>恭喜完成学习！</view>
         </view>
 
         <view style='margin-top:8%;'>
@@ -204,6 +289,14 @@
             <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">一天最多学过</view><view><text style='font-size:22px;'>{{dataObj.mostOneDayCount}}</text><text>个</text></view></view>
           </view>
         </view>
+
+        <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="goBack" class="weui-btn" style="margin:5% 10% 10% 10%" type="default">返回主页</button>
+              </view>
+            </view>
+          </view>
 
       </view>
   </view>
