@@ -43,10 +43,6 @@
       "text": "文章"
     },
     {
-      "pagePath": "pages/classlist/index",
-      "text": "课程"
-    },
-    {
       "pagePath": "pages/myinfo/index",
       "text": "我"
     }]
