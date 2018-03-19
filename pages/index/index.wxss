@@ -29,9 +29,7 @@
   font-size:14px;
 }
 
-.weui-footer{
-    margin-bottom: 15px;
-}
+
 
 @keyframes rotating{
 from{transform:rotate(0)}

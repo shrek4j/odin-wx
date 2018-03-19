@@ -1,0 +1,9 @@
+<view class="page">
+    <view class="page__bd">
+          <view class="learnList">
+              <button type="default" class="searchBtn" bindtap="learnWords" data-group="1">词根记单词-学习计划1</button>
+             <!-- <button type="default" class="searchBtn" bindtap="learnWords" data-group="2">学习计划2</button> -->
+             <!-- <button type="default" class="searchBtn" bindtap="learnWords" data-group="3">学习计划3</button> -->
+          </view>
+    </view>
+</view>

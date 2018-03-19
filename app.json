@@ -13,7 +13,8 @@
     "pages/myinfo/index",
     "pages/collectlist/index",
     "pages/learnwords/index",
-    "pages/learnwords/main"
+    "pages/learnwords/main",
+    "pages/learnwords/entrance"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -39,8 +40,8 @@
       "text": "列表"
     },
     {
-      "pagePath": "pages/articlelist/index",
-      "text": "文章"
+      "pagePath": "pages/learnwords/entrance",
+      "text": "记单词"
     },
     {
       "pagePath": "pages/myinfo/index",

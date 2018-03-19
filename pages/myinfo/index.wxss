@@ -10,3 +10,7 @@
   color: #888888;
   padding-bottom:15rpx;
 }
+
+.weui-footer{
+    margin-bottom: 15px;
+}

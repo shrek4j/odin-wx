@@ -18,6 +18,12 @@
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
+            <navigator url="/pages/article/a20170815" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">
+                  英语单词学习的诀窍
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
             <navigator url="/pages/article/a20170511" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">
                   关于奥汀之眼
@@ -26,4 +32,13 @@
             </navigator>
         </view>
     </view>
+
+    <view class="weui-footer weui-footer_fixed-bottom" style="display:{{showFooter}}">
+      <view>
+        <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg"></image>
+      </view>
+      <view class="weui-footer__text">关注"奥汀之眼"</view>
+      <view class="weui-footer__text">添加微信号：shrek4e</view>
+    </view> 
+
 </view>

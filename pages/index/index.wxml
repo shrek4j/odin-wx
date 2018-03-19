@@ -17,13 +17,3 @@
   </view>
   <text class="userinfo-nickname">{{brandName}}</text>
 </view>
-
-<!--
-<view class="weui-footer weui-footer_fixed-bottom" style="display:{{showFooter}}">
-    <view>
-      <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg"></image>
-    </view>
-    <view class="weui-footer__text">扫描二维码，或加微信shrek4e</view>
-    <view class="weui-footer__text">加入交流群</view>
-</view> 
--->
