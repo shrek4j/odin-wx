@@ -1,9 +1,7 @@
-<view class="page">
-    <view class="page__bd">
-          <view class="learnList">
-              <button type="default" class="searchBtn" bindtap="learnWords" data-group="1">词根记单词-学习计划1</button>
-             <!-- <button type="default" class="searchBtn" bindtap="learnWords" data-group="2">学习计划2</button> -->
-             <!-- <button type="default" class="searchBtn" bindtap="learnWords" data-group="3">学习计划3</button> -->
-          </view>
-    </view>
+<view class="page" style='background-color:#EEEEEE;height:100%;width:100%;position:absolute;'>
+  <view style='display: flex;flex-direction: column;align-items: center;margin:20px 0px 10px 0px;'>
+  <view style='font-size:14px;width:100px;text-align:center;color:#3399FF;height: 30px;line-height:30px;background-color:white;border-radius:5px;'>使用须知</view>
+  </view>
+  <image id="user_guide" src="http://or5tvkzs8.bkt.clouddn.com/image/learnwords/user_guide.png" style='width:80%;margin:0% 10% 5% 10%;' mode="widthFix"></image>
+  <view style='margin:5px 10% 20px 10%;display:block;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;font-size:18px;border-radius:5px;' bindtap="learnWords" data-group="1">进入学习计划</view>
 </view>

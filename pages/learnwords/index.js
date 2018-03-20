@@ -1,5 +1,5 @@
-var base64 = require("../images/base64");
 
+var UserInfo = require('../userInfo/userInfo.js')
 
 Page({
   toMainPage: function (e) {
@@ -15,7 +15,7 @@ Page({
     if (group == null || group == undefined){
       group = 1
     }
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     wx.request({
       url: 'https://odin.bajiaoshan893.com/LearnWord/showTaskInfo',

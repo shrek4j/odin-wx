@@ -12,10 +12,12 @@ App({
             },
             success: function (res) {
               var jsondata = JSON.parse(res.data);
-              wx.setStorage({
-                key: "sfz",
-                data: jsondata.sfz
-              })
+              if (jsondata.sfz != 0) {
+                wx.setStorage({
+                  key: "sfz",
+                  data: jsondata.sfz
+                })
+              }
             }
           })
         } else {

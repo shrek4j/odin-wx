@@ -36,12 +36,12 @@
       "text": "搜索"
     },
     {
-      "pagePath": "pages/searchmorphemelist/index",
-      "text": "列表"
-    },
-    {
       "pagePath": "pages/learnwords/entrance",
       "text": "记单词"
+    },
+    {
+      "pagePath": "pages/searchmorphemelist/index",
+      "text": "列表"
     },
     {
       "pagePath": "pages/myinfo/index",

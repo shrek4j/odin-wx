@@ -1,9 +1,9 @@
-<view class="page">
-  <view style='margin:0px;display:block;background-color:#3399FF;color:white;'>
+<view class="page" style='background-color:#EEEEEE;height:100%;width:100%;position:absolute;'>
+  <view style='margin:10% 7% 15px 7%;display:block;background-color:#55BBFF;color:white;border-radius:8px;'>
     <view style='text-align:center;padding-top:50px;font-size:24px;'>
-      <view wx:if="{{dataObj.group == 1}}">TOP1-100词根记单词</view>
-      <view wx:elif="{{dataObj.group == 2}}">TOP101-200词根记单词</view>
-      <view wx:elif="{{dataObj.group == 3}}">TOP201-300词根记单词</view>
+      <view wx:if="{{dataObj.group == 1}}">TOP1-100词根</view>
+      <view wx:elif="{{dataObj.group == 2}}">TOP101-200词根</view>
+      <view wx:elif="{{dataObj.group == 3}}">TOP201-300词根</view>
     </view>
     <view style='padding-top:50px;'>
       <view class="weui-flex">
@@ -11,14 +11,17 @@
         <view class="weui-flex__item" style='text-align:center;font-size:16px;'><view class="placeholder">今天学单词</view><view><text style='font-size:22px;'>{{dataObj.portionToday}}</text><text >个</text></view></view>
       </view>
     </view>
-    <view style='padding-top:40px;padding-bottom:30px;text-align:center;font-size:16px;'>总进度：{{dataObj.learntCount}}/{{dataObj.totalCount}}，全学完还需{{dataObj.durationDay}}天</view>
+    <view style='padding-top:40px;padding-bottom:40px;text-align:center;font-size:16px;'>总进度：{{dataObj.learntCount}}/{{dataObj.totalCount}}，全学完还需{{dataObj.durationDay}}天</view>
   </view>
-  <view style='display: flex;flex-direction: column;align-items: center;'>
-    <view style='margin-top:80px;text-align:center;color:white;width: 100px;height: 100px;border-radius: 50%;line-height:100px;background-color:#33CCCC;box-shadow: 0px 0px 10px -2px #000000;font-size:20px;'>
-      <view bindtap='toMainPage' data-progress="start" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:if="{{dataObj.progress[0] == null}}">开始学习</view>
-      <view bindtap='toMainPage' data-progress="resume" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:elif="{{dataObj.progress[0].is_finished == 0}}">继续学习</view>
-      <view wx:elif="{{dataObj.progress[0].is_finished == 1}}" bindtap='toMainPage' data-group="{{dataObj.group}}">学习完成</view>
-    </view>
+  <view style='display:block;margin:50px 7% 20px 7%;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;box-shadow: 0px 0px 10px -1px #000000;font-size:18px;border-radius:5px;'>
+    <view bindtap='toMainPage' data-progress="start" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:if="{{dataObj.progress[0] == null}}">开始记单词</view>
+    <view bindtap='toMainPage' data-progress="resume" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:elif="{{dataObj.progress[0].is_finished == 0}}">继续记单词</view>
+    <view wx:elif="{{dataObj.progress[0].is_finished == 1}}" bindtap='toMainPage' data-group="{{dataObj.group}}">学习完成</view>
   </view>
-
+  <!--
+  <view class="weui-flex" style='margin:30px 30px 0px 30px;'>
+        <view class="weui-flex__item" style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#FF9900;font-size:16px;border-radius:5px;margin-right:10px;'>生词本</view>
+        <view class="weui-flex__item" style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#99CCFF;font-size:16px;border-radius:5px;margin-left:10px;'>已掌握</view>
+      </view>
+  -->
 </view>

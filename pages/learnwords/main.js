@@ -1,4 +1,4 @@
-var base64 = require("../images/base64");
+var UserInfo = require('../userInfo/userInfo.js')
 
 Page({ 
   doLearn: function (e) {
@@ -52,7 +52,7 @@ Page({
     var status = options.status
     var portionToday = options.portionToday
 
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     wx.request({
       url: 'https://odin.bajiaoshan893.com/LearnWord/doLearn',

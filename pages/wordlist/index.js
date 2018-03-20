@@ -2,6 +2,7 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var UserInfo = require('../userInfo/userInfo.js')
 var morphemeId = 1
 var count = 0;
 var flag = "";
@@ -70,7 +71,7 @@ Page({
       }
     });
 
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     //TODO 
     wx.request({
       url: 'https://odin.bajiaoshan893.com/CollectRoot/showCollectByRoot',
@@ -121,7 +122,7 @@ Page({
     }
   },
   toggleCollectRoot: function () {
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     if (flag == "false") {
       wx.request({

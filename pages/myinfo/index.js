@@ -1,8 +1,8 @@
-var base64 = require("../images/base64");
+var UserInfo = require('../userInfo/userInfo.js')
 Page({
   onLoad: function () {
     try {
-      var userInfo = wx.getStorageSync('userInfo')
+      var userInfo = tryGetUserInfo()
       if (userInfo) {
         var avatarUrl = userInfo.avatarUrl
         var nickName = userInfo.nickName

@@ -1,4 +1,4 @@
-var base64 = require("../images/base64");
+var UserInfo = require('../userInfo/userInfo.js')
 
 Page({
   showwordlist: function (e) {
@@ -8,7 +8,7 @@ Page({
     });
   },
   onLoad: function (options) {
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
 
     var that = this;
     wx.request({

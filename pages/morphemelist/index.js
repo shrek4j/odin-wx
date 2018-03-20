@@ -1,4 +1,4 @@
-var base64 = require("../images/base64");
+var UserInfo = require('../userInfo/userInfo.js')
 
 //点赞
 var count = 0;
@@ -68,7 +68,7 @@ Page({
     });
   },
   toggleThumbup: function () {
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     if (flag == "false") {
       wx.request({
@@ -218,7 +218,7 @@ Page({
     } else if (capital == 'z') {
       articleId = 31
     }
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     //TODO 
     wx.request({

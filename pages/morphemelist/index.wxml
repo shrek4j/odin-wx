@@ -36,7 +36,7 @@
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="showwordlist" data-mid="{{item.id}}">
                     {{item.num}}.{{item.word_root}}
-                    <view class="weui-badge" style="margin-left: 5px;">排名：{{item.rank}}</view>
+                    <view class="weui-badge" style="margin-left: 5px;background-color:#3399FF;">排名：{{item.rank}}</view>
                     </view>
                     <view class="weui-media-box__desc"  style="margin-left:0.5em">
                       <view wx:if="{{item.origin == 1}}"   bindtap="showwordlist" data-mid="{{item.id}}"> 来源：Latin </view>

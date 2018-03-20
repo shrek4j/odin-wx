@@ -1,8 +1,9 @@
+var UserInfo = require('../userInfo/userInfo.js')
 var count = 0;
 var flag = "";
 Page({
   toggleThumbup: function(){
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     if(flag == "false"){
       wx.request({
@@ -74,7 +75,7 @@ Page({
     }
   },
   onLoad: function (options) {
-    var sfz = wx.getStorageSync('sfz')
+    var sfz = UserInfo.tryGetSfz();
     var that = this;
     //TODO 
     wx.request({
