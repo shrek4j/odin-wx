@@ -1,6 +1,6 @@
 
-var UserInfo = require('../userInfo/userInfo.js')
-
+var UserInfo = require('../userInfo/userInfo.js');
+var group = 1;
 Page({
   toMainPage: function (e) {
     var progress = e.target.dataset.progress
@@ -10,11 +10,7 @@ Page({
       url: '../learnwords/main?progress=' + progress + '&group=' + group + '&portionToday=' + portionToday 
     });
   },
-  onLoad: function (options) {
-    var group = options.group
-    if (group == null || group == undefined){
-      group = 1
-    }
+  onShow: function () {
     var sfz = UserInfo.tryGetSfz();
     var that = this;
     wx.request({
@@ -35,5 +31,11 @@ Page({
         });
       }
     });
+  },
+  onLoad: function (options) {
+    group = options.group
+    if (group == null || group == undefined){
+      group = 1
+    }
   }
 })

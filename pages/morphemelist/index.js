@@ -10,10 +10,16 @@ var morphemeId = 1
 var shareType = 0
 var shareCapital = ''
 var letterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
 Page({
   data: {
     array: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y','z'],
-    index: 0
+    index: 0,
+    capital: 'a',
+    pageNo: 0,
+    pageSize: 10,
+    hasMoreData : true,
+    contentList: []
   },
   bindPickerChange: function (e) {
     var capital = letterArray[e.detail.value]
@@ -120,17 +126,14 @@ Page({
       });
     }
   },
-  onLoad: function (options) {
-    var capital = options.capital
-    if(capital == null || capital == undefined){
-      capital = 'a'
-    }
-
+  getMorphemes:function(){
     var that = this;
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/Morph/showMorphemesByCapitalJson',
+      url: 'https://odin.bajiaoshan893.com/Morph/showMorphemesByCapitalJsonPaging',
       data: {
-        'capital': capital
+        'capital': that.data.capital,
+        'pageNo': that.data.pageNo,
+        'pageSize': that.data.pageSize
       },
       header: {
         'content-type': 'application/json'
@@ -141,81 +144,106 @@ Page({
           return;
         }
         var dataObj = JSON.parse(msg);
-
-        //--转换translation的<br/>
+        
         var morphList = dataObj.morphList;
-        shareType = dataObj.showType
-        shareCapital = dataObj.capital
-        var num = 1;
-        for (var i = 0; i < morphList.length;i++){
-          morphList[i]['num'] = num++
+        if(morphList == null || morphList == undefined || morphList.length == 0){
+          that.data.hasMoreData = false
+        }else{
+          that.data.pageNo += 1
+          if (that.data.pageNo*that.data.pageSize == 100){//判断是否到底的逻辑
+            that.data.hasMoreData = false
+          }
+          shareType = dataObj.showType
+          shareCapital = dataObj.capital
+          var num = 1;
+          for (var i = 0; i < morphList.length; i++) {
+            morphList[i]['num'] = num + ((that.data.pageNo - 1) * that.data.pageSize)
+            num++
+          }
+          that.data.contentList = that.data.contentList.concat(morphList)
+          dataObj.morphList = that.data.contentList
+          that.setData({
+            dataObj: dataObj
+          });
         }
-        //--转换translation的<br/>
-
-        that.setData({
-          dataObj: dataObj
-        });
+        
       }
     });
-
+  },
+  onReachBottom: function () {
+    if (this.data.hasMoreData) {
+      this.getMorphemes()
+    } else {
+      wx.showToast({
+        title: '已经到底了',
+      })
+    }
+  },
+  onLoad: function (options) {
+    var that = this;
+    that.data.capital = options.capital
+    if (that.data.capital == null || that.data.capital == undefined){
+      that.data.capital = 'a'
+    }
+    this.getMorphemes()
   //点赞
-    if (capital == '100') {
+    if (that.data.capital == '100') {
       articleId = 3
-    } else if (capital == '200') {
+    } else if (that.data.capital == '200') {
       articleId = 4
-    } else if (capital == '300') {
+    } else if (that.data.capital == '300') {
       articleId = 5
-    } else if (capital == 'a') {
+    } else if (that.data.capital == 'a') {
       articleId = 6
-    } else if (capital == 'b') {
+    } else if (that.data.capital == 'b') {
       articleId = 7
-    } else if (capital == 'c') {
+    } else if (that.data.capital == 'c') {
       articleId = 8
-    } else if (capital == 'd') {
+    } else if (that.data.capital == 'd') {
       articleId = 9
-    } else if (capital == 'e') {
+    } else if (that.data.capital == 'e') {
       articleId = 10
-    } else if (capital == 'f') {
+    } else if (that.data.capital == 'f') {
       articleId = 11
-    } else if (capital == 'g') {
+    } else if (that.data.capital == 'g') {
       articleId = 12
-    } else if (capital == 'h') {
+    } else if (that.data.capital == 'h') {
       articleId = 13
-    } else if (capital == 'i') {
+    } else if (that.data.capital == 'i') {
       articleId = 14
-    } else if (capital == 'j') {
+    } else if (that.data.capital == 'j') {
       articleId = 15
-    } else if (capital == 'k') {
+    } else if (that.data.capital == 'k') {
       articleId = 16
-    } else if (capital == 'l') {
+    } else if (that.data.capital == 'l') {
       articleId = 17
-    } else if (capital == 'm') {
+    } else if (that.data.capital == 'm') {
       articleId = 18
-    } else if (capital == 'n') {
+    } else if (that.data.capital == 'n') {
       articleId = 19
-    } else if (capital == 'o') {
+    } else if (that.data.capital == 'o') {
       articleId = 20
-    } else if (capital == 'p') {
+    } else if (that.data.capital == 'p') {
       articleId = 21
-    } else if (capital == 'q') {
+    } else if (that.data.capital == 'q') {
       articleId = 22
-    } else if (capital == 'r') {
+    } else if (that.data.capital == 'r') {
       articleId = 23
-    } else if (capital == 's') {
+    } else if (that.data.capital == 's') {
       articleId = 24
-    } else if (capital == 't') {
+    } else if (that.data.capital == 't') {
       articleId = 25
-    } else if (capital == 'u') {
+    } else if (that.data.capital == 'u') {
       articleId = 26
-    } else if (capital == 'v') {
+    } else if (that.data.capital == 'v') {
       articleId = 27
-    } else if (capital == 'w') {
+    } else if (that.data.capital == 'w') {
       articleId = 28
-    } else if (capital == 'x') {
+    } else if (that.data.capital == 'x') {
       articleId = 29
-    } else if (capital == 'y') {
+    } else if (that.data.capital == 'y') {
       articleId = 30
-    } else if (capital == 'z') {
+    } else if (that.data.capital == 'z') {
       articleId = 31
     }
     var sfz = UserInfo.tryGetSfz();

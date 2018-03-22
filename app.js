@@ -3,7 +3,7 @@ App({
   onLaunch: function () {
     wx.login({
       success: function (res) {
-        if (res.code) { 
+        if (res.code) {
           //发起网络请求
           wx.request({
             url: 'https://odin.bajiaoshan893.com/Login/onLogin',
