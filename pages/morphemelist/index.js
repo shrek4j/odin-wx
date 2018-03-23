@@ -148,11 +148,23 @@ Page({
         var morphList = dataObj.morphList;
         if(morphList == null || morphList == undefined || morphList.length == 0){
           that.data.hasMoreData = false
+          wx.showToast({
+            title: '已经到底了',
+          })
         }else{
           that.data.pageNo += 1
-          if (that.data.pageNo*that.data.pageSize == 100){//判断是否到底的逻辑
-            that.data.hasMoreData = false
+          
+          //判断是否到底的逻辑
+          if (that.data.capital == '100' || that.data.capital == '200' || that.data.capital == '300'){
+            if (that.data.pageNo * that.data.pageSize == 100) {
+              that.data.hasMoreData = false
+            }
+          }else{
+            if (morphList.length < that.data.pageSize){
+              that.data.hasMoreData = false
+            }
           }
+          
           shareType = dataObj.showType
           shareCapital = dataObj.capital
           var num = 1;

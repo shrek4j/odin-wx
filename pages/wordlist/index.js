@@ -7,6 +7,12 @@ var morphemeId = 1
 var count = 0;
 var flag = "";
 Page({
+  data: {
+    pageNo: 0,
+    pageSize: 10,
+    hasMoreData: true,
+    contentList: []
+  },
   openExplanation: function (e) {
     wx.showModal({
       title: e.target.dataset.word,
@@ -31,13 +37,14 @@ Page({
       url: '../similarwordlist/index?wId=' + wId
     })
   },
-  onLoad: function (options) {
-    morphemeId = options.morphemeId;
+  getWordList: function () {
     var that = this
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/Morph/showWordsByMorphemeJson',
+      url: 'https://odin.bajiaoshan893.com/Morph/showWordsByMorphemeJsonPaging',
       data: {
-        'morphemeId': morphemeId
+        'morphemeId': morphemeId,
+        'pageNo': that.data.pageNo,
+        'pageSize': that.data.pageSize
       },
       header: {
         'content-type': 'application/json'
@@ -49,28 +56,58 @@ Page({
         }
         var dataObj = JSON.parse(msg);
 
-        //--转换translation的<br/>
+        
         var wordList = dataObj.wordList;
-        var num = 1;
-        for(var i=0;i<wordList.length;i++){
-          wordList[i]['num'] = num++
-          var trans = wordList[i].translation
-          var tranArr = trans.split('<br/>')
-          if(tranArr==null || tranArr == undefined || tranArr == '' || tranArr.length==0){
-            continue;
-          }else{
-            tranArr = tranArr.slice(0,tranArr.length-1)
-            wordList[i]['tranList'] = tranArr
+        
+        if (wordList == null || wordList == undefined || wordList.length == 0) {
+          that.data.hasMoreData = false
+          wx.showToast({
+            title: '已经到底了',
+          })
+        } else {
+          that.data.pageNo += 1
+          //判断是否到底的逻辑
+          if (wordList.length < that.data.pageSize) {
+            that.data.hasMoreData = false
           }
+        
+          //--转换translation的<br/>
+          var num = 1;
+          for (var i = 0; i < wordList.length; i++) {
+            wordList[i]['num'] = num + ((that.data.pageNo - 1) * that.data.pageSize)
+            num++
+            var trans = wordList[i].translation
+            var tranArr = trans.split('<br/>')
+            if (tranArr == null || tranArr == undefined || tranArr == '' || tranArr.length == 0) {
+              continue;
+            } else {
+              tranArr = tranArr.slice(0, tranArr.length - 1)
+              wordList[i]['tranList'] = tranArr
+            }
+          }
+          //--转换translation的<br/>
+          that.data.contentList = that.data.contentList.concat(wordList)
+          dataObj.wordList = that.data.contentList
+          that.setData({
+            dataObj: dataObj
+          });
         }
-        //--转换translation的<br/>
-
-        that.setData({
-          dataObj: dataObj
-        });
       }
     });
-
+  },
+  onReachBottom: function () {
+    if (this.data.hasMoreData) {
+      this.getWordList()
+    } else {
+      wx.showToast({
+        title: '已经到底了',
+      })
+    }
+  },
+  onLoad: function (options) {
+    morphemeId = options.morphemeId;
+    this.getWordList()
+    var that = this
     var sfz = UserInfo.tryGetSfz();
     //TODO 
     wx.request({
