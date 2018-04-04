@@ -16,7 +16,7 @@ function tryGetUserInfo() {
   return wx.getStorageSync('userInfo')
 }
 
-function setSfz(){
+function initSfzAndSession(){
     wx.login({
       success: function (res) {
         if (res.code) {
@@ -34,6 +34,10 @@ function setSfz(){
                   data: jsondata.sfz
                 })
               }
+              wx.setStorage({
+                key: "sId",
+                data: jsondata.sId
+              })
             }
           })
         } else {
@@ -57,5 +61,6 @@ function setUserInfo(){
 
 module.exports = {
   tryGetSfz: tryGetSfz,
-  setUserInfo : setUserInfo
+  setUserInfo : setUserInfo,
+  initSfzAndSession: initSfzAndSession
 }

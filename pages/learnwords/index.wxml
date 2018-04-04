@@ -22,9 +22,10 @@
     <view bindtap='resetLearnWords' data-group="{{dataObj.group}}">重置学习计划</view>
   </view>
 
+<!-- 
   <view class="weui-flex" style='margin:20px 30px 0px 30px;'>
-        <view class="weui-flex__item" bindtap='toUnlearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#FF9900;font-size:16px;border-radius:5px;margin-right:10px;'>生词本</view>
-        <view class="weui-flex__item" bindtap='toLearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#99CCFF;font-size:16px;border-radius:5px;margin-left:10px;'>已掌握</view>
-      </view>
-
+    <view class="weui-flex__item" bindtap='toUnlearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#FF9900;font-size:16px;border-radius:5px;margin-right:10px;'>生词本</view>
+    <view class="weui-flex__item" bindtap='toLearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#99CCFF;font-size:16px;border-radius:5px;margin-left:10px;'>已掌握</view>
+  </view>
+-->
 </scroll-view>
