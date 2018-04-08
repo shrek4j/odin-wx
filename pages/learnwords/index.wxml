@@ -13,19 +13,19 @@
     </view>
     <view style='padding-top:40px;padding-bottom:40px;text-align:center;font-size:16px;'>总进度：{{dataObj.learntCount}}/{{dataObj.totalCount}}，全学完还需{{dataObj.durationDay}}天</view>
   </view>
-  <view style='display:block;margin:20px 7% 20px 7%;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;box-shadow: 0px 0px 10px -1px #000000;font-size:18px;border-radius:5px;'>
+  <view style='display:block;margin:20px 7% 20px 7%;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;box-shadow: 0px 0px 5px -1px #000000;font-size:18px;border-radius:5px;'>
     <view bindtap='toMainPage' data-progress="start" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:if="{{dataObj.progress[0] == null}}">开始记单词</view>
     <view bindtap='toMainPage' data-progress="resume" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" wx:elif="{{dataObj.progress[0].is_finished == 0}}">继续记单词</view>
     <view wx:elif="{{dataObj.progress[0].is_finished == 1}}" bindtap='toMainPage' data-group="{{dataObj.group}}">学习完成</view>
   </view>
-  <view style='display:block;margin:20px 7% 20px 7%;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;box-shadow: 0px 0px 10px -1px #000000;font-size:18px;border-radius:5px;'>
+  <view style='display:block;margin:20px 7% 20px 7%;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;box-shadow: 0px 0px 5px -1px #000000;font-size:18px;border-radius:5px;'>
     <view bindtap='resetLearnWords' data-group="{{dataObj.group}}">重置学习计划</view>
   </view>
 
-<!-- 
+ 
   <view class="weui-flex" style='margin:20px 30px 0px 30px;'>
-    <view class="weui-flex__item" bindtap='toUnlearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#FF9900;font-size:16px;border-radius:5px;margin-right:10px;'>生词本</view>
-    <view class="weui-flex__item" bindtap='toLearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#99CCFF;font-size:16px;border-radius:5px;margin-left:10px;'>已掌握</view>
+    <view class="weui-flex__item" bindtap='toHardWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#FF9900;font-size:16px;border-radius:5px;margin-right:10px;box-shadow: 0px 0px 5px -1px #FF9900;'>生词本</view>
+    <view class="weui-flex__item" bindtap='toLearntWords' style='text-align:center;color:white;height: 50px;line-height:50px;background-color:#99CCFF;font-size:16px;border-radius:5px;margin-left:10px;box-shadow: 0px 0px 5px -1px #99CCFF;'>已掌握</view>
   </view>
--->
+
 </scroll-view>

@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-panel">
+            <view class="weui-panel__hd" style="color:#333;">
+              <view style="display:inline;">生词本</view>
+            </view>
+            <view class="weui-panel__bd">
+             <block wx:for="{{dataObj.wordList}}">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text" bindtap="showwordlist" data-mid="{{item.id}}">
+                    {{item.num}}.{{item.word}}
+                    </view>
+                    <view class="weui-media-box__desc" style="margin-top:0.3em;margin-left:0.5em;">
+                      <view>释义：</view>
+                      <block wx:for="{{item.tranList}}" wx:for-item="item1">
+                        <view style="margin-top:0.2em">{{item1}}</view>
+                      </block>
+                    </view>
+                    <view class="weui-media-box__desc" style="margin-top:1em;margin-left:0.5em;">
+                      <view>词根助记：</view>
+                      <view>{{item.learn_by_root}}</view>
+                    </view>
+                </view>
+              </block>
+            </view>
+        </view>
+    </view>
+</view>

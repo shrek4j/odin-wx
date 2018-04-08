@@ -1,6 +1,7 @@
 
 var UserInfo = require('../userInfo/userInfo.js');
 var group = 1;
+
 Page({
   toMainPage: function (e) {
     var progress = e.target.dataset.progress
@@ -30,6 +31,11 @@ Page({
           dataObj: dataObj
         });
       }
+    });
+  },
+  toHardWords:function(){
+    wx.navigateTo({
+      url: '../learnwords/hardwords?&group=' + group
     });
   },
   resetLearnWords: function () {

@@ -2,7 +2,7 @@
 function tryGetSfz(){
   var sfz = wx.getStorageSync('sfz')
   if(sfz == null || sfz == undefined){
-    setSfz();
+    initSfzAndSession();
     setUserInfo();
   }
   return wx.getStorageSync('sfz')
