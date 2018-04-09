@@ -2,17 +2,17 @@
     <view class="page__bd">
         <view class="weui-panel">
             <view class="weui-panel__hd" style="color:#333;">
-              <view wx:if="{{group == 1}}">TOP1-100词根 生词本（共{{totalCount}}个）</view>
-              <view wx:elif="{{group == 2}}">TOP101-200词根 生词本（共{{totalCount}}个）</view>
-              <view wx:elif="{{group == 3}}">TOP201-300词根 生词本（共{{totalCount}}个）</view>
+              <view wx:if="{{group == 1}}">TOP1-100词根 已掌握（共{{totalCount}}个）</view>
+              <view wx:elif="{{group == 2}}">TOP101-200词根 已掌握（共{{totalCount}}个）</view>
+              <view wx:elif="{{group == 3}}">TOP201-300词根 已掌握（共{{totalCount}}个）</view>
             </view>
             <view class="weui-panel__bd">
               <block wx:for="{{contentList}}">
                 <view class="weui-media-box weui-media-box_text">
                   <view class="weui-media-box__title weui-media-box__title_in-text">
                       <text bindtap="playAudio" data-word="{{item.word}}">{{item.num}}.{{item.word}}</text>
-                      <view wx:if="{{item.learnt == 1}}" class="weui-badge" style="float:right;margin-right:5%;background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;">已掌握</view>
-                      <view wx:if="{{item.learnt != 1}}" class="weui-badge" style="float:right;margin-right:5%;background-color:#f15a22; border-radius:3px;height:16px;line-height:16px;">未掌握</view> 
+                      <view wx:if="{{item.learnt == 1}}" class="weui-badge" style="float:right;margin-right:5%;background-color:#f15a22; border-radius:3px;height:16px;line-height:16px;">未掌握</view>
+                      <view wx:if="{{item.learnt != 1}}" class="weui-badge" style="float:right;margin-right:5%;background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;">已掌握</view> 
                   </view>
                   <view class="weui-media-box__desc" style="margin-top:0.3em;margin-left:0.5em;">
                     <view class="weui-badge" style="background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;margin-bottom:5px;">释义</view>
@@ -30,10 +30,10 @@
                     <view class="weui-badge" style="background-color:#33AAFF; border-radius:3px;height:16px;line-height:16px;margin-bottom:5px;">词根助记</view>
                     <view>{{item.learn_by_root}}</view>
                   </view>
-                  <view class="weui-media-box__info" style="margin-left:0.5em;"> 
+                  <view class="weui-media-box__info"> 
                       <view class="weui-media-box__info__meta">操作</view>
                       <view class="weui-media-box__info__meta weui-media-box__info__meta_extra" >
-                        <text data-wordid="{{item.id}}" data-word="{{item.word}}" bindtap="setLearnt">设为已掌握</text>
+                        <text data-wordid="{{item.id}}" data-word="{{item.word}}" bindtap="setUnLearnt">设为未掌握</text>
                       </view>
                   </view>
                 </view>

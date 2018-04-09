@@ -15,7 +15,8 @@
     "pages/learnwords/index",
     "pages/learnwords/main",
     "pages/learnwords/entrance",
-    "pages/learnwords/hardwords"
+    "pages/learnwords/hardwords",
+    "pages/learnwords/easywords"
   ],
   "window":{
     "backgroundTextStyle":"light",

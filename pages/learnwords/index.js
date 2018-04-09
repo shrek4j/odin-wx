@@ -38,6 +38,11 @@ Page({
       url: '../learnwords/hardwords?&group=' + group
     });
   },
+  toEasyWords: function () {
+    wx.navigateTo({
+      url: '../learnwords/easywords?&group=' + group
+    });
+  },
   resetLearnWords: function () {
     var that = this
     wx.showModal({

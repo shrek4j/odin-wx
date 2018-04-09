@@ -12,7 +12,7 @@ Page({
   },
   onReachBottom: function () {
     if (this.data.hasMoreData) {
-      this.getHardWords();
+      this.getEasyWords();
     } else {
       wx.showToast({
         title: '已经到底了',
@@ -33,13 +33,13 @@ Page({
       coverImgUrl: ''
     })
   },
-  setLearnt: function(e){
+  setUnLearnt: function(e){
     var that = this;
     var wordId = e.target.dataset.wordid;
     var word = e.target.dataset.word;
     var sfz = UserInfo.tryGetSfz();
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/LearnWord/setLearnt',
+      url: 'https://odin.bajiaoshan893.com/LearnWord/setUnLearnt',
       data: {
         'userId': sfz,
         'group': group,
@@ -73,16 +73,16 @@ Page({
           totalCount: totalCount
         });
         wx.showToast({
-          title: '已设为已掌握',
+          title: '已设为未掌握',
         })
       }
     });
   },
-  getHardWords:function (){
+  getEasyWords:function (){
     var that = this;
     var sfz = UserInfo.tryGetSfz();
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/LearnWord/toHardWords',
+      url: 'https://odin.bajiaoshan893.com/LearnWord/toLearntWords',
       data: {
         'userId': sfz,
         'group': group,
@@ -156,7 +156,7 @@ Page({
   },
   onLoad: function (options) {
     group = options.group;
-    this.getHardWords();
+    this.getEasyWords();
   }
 
 })
