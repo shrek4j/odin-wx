@@ -21,7 +21,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#0a4d7d",
-    "navigationBarTitleText": "奥汀之眼词根词典",
+    "navigationBarTitleText": "奥汀之眼词根记单词",
     "navigationBarTextStyle":"white"
   },
   "networkTimeout": {

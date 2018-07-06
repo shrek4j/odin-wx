@@ -1,5 +1,5 @@
 <view class="page" style='background-color:#EEEEEE;height:100%;width:100%;position:absolute;'>
-    <view class="page__bd">
+    <view class="page__bd" style='margin-top:10%;'>
           <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
               <button type="default" style='margin:20px 10% 20px 10%;display:block;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;font-size:16px;border-radius:5px;'>根据词根首字母查询</button>
           </picker>
@@ -8,4 +8,8 @@
           <view style='margin:20px 10% 20px 10%;display:block;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;font-size:16px;border-radius:5px;' bindtap="searchTopMorphemes" data-num="200">查询TOP100-200高频词根</view>
           <view style='margin:20px 10% 20px 10%;display:block;text-align:center;color:white;height: 50px;line-height:50px;background-color:#3399FF;font-size:16px;border-radius:5px;' bindtap="searchTopMorphemes" data-num="300">查询TOP200-300高频词根</view>
     </view>
+
+  <view class="weui-footer weui-footer_fixed-bottom" style='bottom:0px;margin:10px;'>
+    <ad unit-id="adunit-4fd4da2431e1aaf0"></ad>
+  </view> 
 </view>

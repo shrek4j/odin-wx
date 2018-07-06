@@ -5,8 +5,7 @@
     <view class="page__bd">
         <view class="weui-cell">
             <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-                <image src="{{avatarUrl}}" background-size="cover" class="userinfo-avatar"></image>
-            </view>
+                <image src="{{avatarUrl}}" background-size="cover" class="userinfo-avatar"/>            </view>
             <view class="weui-cell__hd">
                 <view class="userinfo-nickname">{{nickName}}</view>
             </view>
@@ -35,10 +34,9 @@
 
     <view class="weui-footer weui-footer_fixed-bottom" style="font-size:14px;">
       <view>
-        <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg"></image>
+        <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/gongzhonghao.jpg"></image>
       </view>
-      <view class="weui-footer__text">关注"奥汀之眼"</view>
-      <view class="weui-footer__text">添加微信号：shrek4e</view>
+      <view class="weui-footer__text">关注公众号："英语课代表史莱克"</view>
     </view> 
 
 </view>

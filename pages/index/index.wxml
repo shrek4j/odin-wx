@@ -17,3 +17,8 @@
   </view>
   <text class="userinfo-nickname">{{brandName}}</text>
 </view>
+
+
+<view class="weui-footer weui-footer_fixed-bottom" style='bottom:0px;margin:10px;'>
+  <ad unit-id="adunit-2e78949bba0aea63"></ad>
+</view> 
