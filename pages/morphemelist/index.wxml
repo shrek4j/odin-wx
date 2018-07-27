@@ -26,6 +26,7 @@
               <button open-type="share" style="margin-left:15px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#f58220;color:white;">分享</button>
               <button id="thumbupBtn" bindtap="toggleThumbup" class="{{thumbupClass}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;">赞<view id="totalThumbups" style="display:inline">{{count}}</view></button>
               <button wx:if="{{dataObj.showType == 1}}" bindtap="learnWords" data-group="{{dataObj.showType}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#0099FF;color:white;">记单词</button>
+              <button wx:if="{{dataObj.showType == 2}}" bindtap="learnWords" data-group="{{dataObj.showType}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#0099FF;color:white;">记单词</button>
             </view>
             <view class="weui-panel__hd">
               <view>注：</view>

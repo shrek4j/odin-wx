@@ -62,5 +62,6 @@ function setUserInfo(){
 module.exports = {
   tryGetSfz: tryGetSfz,
   setUserInfo : setUserInfo,
+  tryGetUserInfo : tryGetUserInfo,
   initSfzAndSession: initSfzAndSession
 }
