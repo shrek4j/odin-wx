@@ -1,5 +1,7 @@
 var UserInfo = require('../userInfo/userInfo.js')
 
+var tempGroup = 1;
+var tempPortionToday = 20;
 Page({ 
   doLearn: function (e) {
     var group = e.target.dataset.group
@@ -42,6 +44,40 @@ Page({
       coverImgUrl: ''
     })
   },
+  onShareAppMessage: function () {
+    return {
+      title: '轻松记单词，了解一下？',
+      path: '/pages/learnwords/entrance',
+      success: function (res) {
+        wx.showToast({
+          title: '成功领取金币！',
+          icon: 'success',
+          duration: 2000
+        })
+        var sfz = UserInfo.tryGetSfz();
+        wx.request({
+          url: 'https://odin.bajiaoshan893.com/LearnWord/rewardCoin',
+          data: {
+            'userId': sfz
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          success:function (res){
+            wx.redirectTo({
+              url: '../learnwords/main?progress=next&group=' + tempGroup + '&portionToday=' + tempPortionToday
+            });
+          }
+        })
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '转发失败，请稍后再试',
+          duration: 1500
+        })
+      }
+    }
+  },
   onLoad: function (options) {
     var group = options.group
     if (group == null || group == undefined){
@@ -55,7 +91,7 @@ Page({
     var sfz = UserInfo.tryGetSfz();
     var that = this;
     wx.request({
-      url: 'https://odin.bajiaoshan893.com/LearnWord/doLearn',
+      url: 'https://odin.bajiaoshan893.com/LearnWord/doLearnNew',
       data: {
         'userId': sfz,
         'group': group,
@@ -138,6 +174,11 @@ Page({
         }
          */
 
+        if (dataObj.isFinished == 'noCoin'){
+          tempGroup = dataObj.group
+          tempPortionToday = dataObj.portionToday
+        }
+        console.log(dataObj)        
         that.setData({
           dataObj: dataObj,
           week:week
