@@ -40,7 +40,7 @@
 
     <view class="weui-footer weui-footer_fixed-bottom" style="font-size:14px;">
       <view bindtap='showActions'>
-        <image mode="widthFix" style="width: 20%; height: 20%;" src="http://or5tvkzs8.bkt.clouddn.com/image/gongzhonghao.jpg"></image>
+        <image mode="widthFix" style="width: 48px; height: 48px;" src="/pages/images/qrcode.png"></image>
       </view>
       <view bindtap='showActions' class="weui-footer__text">"英语课代表史莱克"</view>
       <view class="weui-footer__text">点击图片或文字关注公众号</view>

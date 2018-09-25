@@ -108,8 +108,8 @@ Page({
   },
   previewImage() {
     wx.previewImage({
-      current: 'http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg', // 当前显示图片的http链接
-      urls: ['http://or5tvkzs8.bkt.clouddn.com/image/promote/shrek4e.jpg'] // 需要预览的图片http链接列表
+      current: 'http://main.cdn.odinseyedict.com/image/promote/shrek4e.jpg', // 当前显示图片的http链接
+      urls: ['http://main.cdn.odinseyedict.com/image/promote/shrek4e.jpg'] // 需要预览的图片http链接列表
     })
   },
   wxSearchFn: function (e) {

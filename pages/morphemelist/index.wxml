@@ -7,9 +7,14 @@
         </view>
         <view wx:elif="{{dataObj.showType == 1}}">
           <view class="letterpicker">
-                <view style="font-size:16px;height:45px;line-height:45px;">TOP1-100高频词根</view>
-            </view>
+            <view style="font-size:18px;height:45px;line-height:45px;display:inline;">TOP1-100高频词根</view>
+  <!--          <image mode="widthFix" style="width: 18px; height: 18px;margin-left:10px;" src="/pages/images/share1.png"></image>
+            <image wx:if="{{thumbupClass == 'done'}}" bindtap="toggleThumbup" mode="widthFix" style="width: 18px; height: 18px;margin-left:10px;" src="/pages/images/like-fill.png"></image>
+            <image wx:else bindtap="toggleThumbup" mode="widthFix" style="width: 18px; height: 18px;margin-left:10px;" src="/pages/images/like.png"></image>
+            <image wx:if="{{dataObj.showType == 1 || dataObj.showType == 2}}" bindtap="learnWords" data-group="{{dataObj.showType}}" mode="widthFix" style="width: 18px; height: 18px;margin-left:10px;" src="/pages/images/brain.png"></image>-->
+          </view>
         </view>
+        
         <view wx:elif="{{dataObj.showType == 2}}">
           <view class="letterpicker">
                 <view style="font-size:16px;height:45px;line-height:45px;">TOP101-200高频词根</view>
@@ -28,6 +33,7 @@
               <button wx:if="{{dataObj.showType == 1}}" bindtap="learnWords" data-group="{{dataObj.showType}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#0099FF;color:white;">记单词</button>
               <button wx:if="{{dataObj.showType == 2}}" bindtap="learnWords" data-group="{{dataObj.showType}}" style="margin-left:10px;padding:4px 6px 4px 6px;width:60px;height:40px;font-size:13px;display:inline;background-color:#0099FF;color:white;">记单词</button>
             </view>
+            
             <view class="weui-panel__hd">
               <view>注：</view>
               <view>排名：根据词根对应的单词数量和词频综合计算得出</view>

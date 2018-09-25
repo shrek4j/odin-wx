@@ -1,6 +1,6 @@
 <view class="page">
   <view wx:if="{{dataObj.isFinished=='noCoin'}}" style='text-align:center;background-color:#77CCFF;height:100%;width:100%;position:fixed;'>
-    <image id="user_guide" src="http://or5tvkzs8.bkt.clouddn.com/image/learnwords/user_guide.png" style='width:80%;margin:10% 10% 5% 10%;' mode="widthFix"></image>
+    <image id="user_guide" src="http://main.cdn.odinseyedict.com/image/learnwords/user_guide.png" style='width:80%;margin:10% 10% 5% 10%;' mode="widthFix"></image>
     <view><text style='color:white;font-weight:bold;'>糟糕！金币不足！剩余：{{dataObj.coins}}</text></view>
     <button style='font-size:16px;width:70%;margin-top:5%;background-color:#66CC66;color:white;' open-type="share">点我转发到群，获取30金币</button>
   </view>
@@ -65,10 +65,10 @@
   </view>
 
   <view wx:elif="{{dataObj.isFinished=='todayTrue'}}">
-    <!-- <canvas canvas-id="myCanvas" style="width:500px;height:800px;z-index:-1000"/> -->
+    <canvas canvas-id="myCanvas" style='width:500px;height:800px;'/>
     <view wx:if="{{week==1}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/4.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/4.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -82,6 +82,11 @@
           </view>
           
           <view class="weui-footer weui-footer_fixed-bottom">
+          <view class="weui-flex">
+              <view class="weui-flex__item">
+                <button bindtap="saveSharePic" class="weui-btn" style="margin:5% 5% 2% 5%" type="default">分享学习成果</button>
+              </view>
+            </view>
             <view class="weui-flex">
               <view class="weui-flex__item">
                 <button bindtap="goCrazy" data-portion="{{dataObj.portionToday}}" data-group="{{dataObj.group}}" class="weui-btn" style="margin:5% 5% 10% 10%;background-color:#FF6600" type="primary">无尽模式</button>
@@ -98,7 +103,7 @@
     
     <view wx:elif="{{week==2}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="display:absolute;width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/6.jpg"></image>
+        <image mode='aspectFill' style="display:absolute;width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/6.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -128,7 +133,7 @@
 
     <view wx:elif="{{week==3}}">
       <view style='color:black;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/9.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/9.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -159,7 +164,7 @@
 
     <view wx:elif="{{week==4}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/5.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/5.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -189,7 +194,7 @@
 
     <view wx:elif="{{week==5}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/2.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/2.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -219,7 +224,7 @@
 
     <view wx:elif="{{week==6}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/8.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/8.jpg"></image>
         
         <view style='padding-top:25%;'>
           <view class="weui-flex">
@@ -249,7 +254,7 @@
 
     <view wx:elif="{{week==0}}">
       <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/10.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/10.jpg"></image>
         
         <view style='padding-top:10%;'>
           <view class="weui-flex">
@@ -281,7 +286,7 @@
 
   <view wx:elif="{{dataObj.isFinished=='true'}}">
     <view style='color:white;'>
-        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://or5tvkzs8.bkt.clouddn.com/image/share/11.jpg"></image>
+        <image mode='aspectFill' style="width:100%;height:100%;position:absolute;z-index:-1" src="http://main.cdn.odinseyedict.com/image/share/11.jpg"></image>
         
         <view style='padding:10% 8% 0% 8%;font-size:14px;font-family:Verdana;text-align:center;'>
           <view style='font-size:20px;'>恭喜完成学习！</view>

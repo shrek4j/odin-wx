@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="top-presenter">
+      <view style="font-size:14px;height:20px;line-height:20px;">听读</view>
+    </view>
+    <view class="weui-panel">
+      <view class="weui-panel__bd">
+        <block wx:for="{{contentList}}" wx:key="{{index}}">
+          <view class="weui-media-box weui-media-box_text">
+            <navigator target="miniProgram" open-type="navigate" app-id="wx93e09e23c83dc26f" path="pages/vaudiopage/index?{{item.extraData}}" extra-data="" version="release">
+              <view class="weui-media-box__title weui-media-box__title_in-text video-title">
+                <text >Title : {{item.eng_title}}</text>
+              </view>
+              <view class="weui-media-box__title weui-media-box__title_in-text video-title">
+                <text >标题：{{item.cn_title}}</text>
+              </view>
+              <view class="weui-media-box__desc">
+                <view>
+                  <text>日期：{{item.date}}</text><text style='margin-left:20px;'>{{item.learn_count}}人已学</text>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

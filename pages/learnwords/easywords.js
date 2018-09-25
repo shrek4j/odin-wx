@@ -28,7 +28,7 @@ Page({
   playAudio: function (e) {
     var word = e.target.dataset.word
     wx.playBackgroundAudio({
-      dataUrl: "http://oztas5d9g.bkt.clouddn.com/audio/word/" + word + ".mp3",
+      dataUrl: "http://word.audio.odinseyedict.com/audio/word/" + word + ".mp3",
       title: '',
       coverImgUrl: ''
     })

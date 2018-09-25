@@ -1,5 +1,5 @@
 <view class="page">
   <view>
-    <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 100%; height: 100%;" src="http://or5tvkzs8.bkt.clouddn.com/image/promote/wechatClass1.png"></image>
+    <image bindtap="previewImage" bindlongtap="previewImage" mode="widthFix" style="width: 100%; height: 100%;" src="http://main.cdn.odinseyedict.com/image/promote/wechatClass1.png"></image>
   </view>
 </view>

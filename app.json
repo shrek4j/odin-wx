@@ -16,7 +16,8 @@
     "pages/learnwords/main",
     "pages/learnwords/entrance",
     "pages/learnwords/hardwords",
-    "pages/learnwords/easywords"
+    "pages/learnwords/easywords",
+    "pages/vaudiopage/videolist"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -39,7 +40,11 @@
     },
     {
       "pagePath": "pages/learnwords/entrance",
-      "text": "记单词"
+      "text": "记词"
+    },
+    {
+      "pagePath": "pages/vaudiopage/videolist",
+      "text": "听读"
     },
     {
       "pagePath": "pages/searchmorphemelist/index",

@@ -39,7 +39,7 @@ Page({
   playAudio: function(e){
     var word = e.target.dataset.word
     wx.playBackgroundAudio({
-      dataUrl: "http://oztas5d9g.bkt.clouddn.com/audio/word/" + word + ".mp3",
+      dataUrl: "http://word.audio.odinseyedict.com/audio/word/" + word + ".mp3",
       title: '',
       coverImgUrl: ''
     })
@@ -133,20 +133,20 @@ Page({
         }
 
         var week = new Date().getDay();
-        /**
+        
         if (dataObj.isFinished == 'todayTrue'){
           //2. canvas绘制文字和图片
           var ctx = wx.createCanvasContext('myCanvas')
           
-          var qrPath = '../images/miniqr.jpg'
+          var qrPath = '../images/miniqr_morpheme.jpg'
           var bgImgPath = '../images/bg1.jpg';
 
           ctx.drawImage(bgImgPath, 0, 0, 500, 800);
 
-          ctx.setFillStyle('#33CCFF')
+          ctx.setFillStyle('white')
           ctx.fillRect(0, 590, 500, 210);
 
-          ctx.drawImage(qrPath, 350, 620, 130, 150);
+          ctx.drawImage(qrPath, 350, 620, 130, 130);
 
           ctx.setFontSize(22)
           ctx.setFillStyle('#111111')
@@ -164,15 +164,15 @@ Page({
           ctx.fillText('Words', 330, 165)
 
           ctx.setFontSize(20)
-          ctx.setFillStyle('white')
-          ctx.fillText('长 按 识 别 二 维 码 学 习', 65, 650)
-          ctx.setFontSize(34)
-          ctx.fillText('奥汀之眼词根学单词', 25, 705)
-          ctx.setFontSize(21)
-          ctx.fillText('来这里，用最聪明的方法记单词！', 24, 750)
+          ctx.setFillStyle('black')
+          ctx.fillText('只要10天', 24, 650)
+          ctx.fillText('牢记150+高频词根', 24, 700)
+          ctx.fillText('轻松学会4000+单词', 24, 750)
+          ctx.setFontSize(16)
+          ctx.fillText('长按识别 高效学习' , 345, 770);
           ctx.draw();
         }
-         */
+        
 
         if (dataObj.isFinished == 'noCoin'){
           tempGroup = dataObj.group
@@ -188,7 +188,8 @@ Page({
   },
 
   saveSharePic : function (e){
-    wx.canvasToTempFilePath({
+    var ctx = wx.createCanvasContext('myCanvas')
+    ctx.draw(true, wx.canvasToTempFilePath({
       x: 0,
       y: 0,
       width: 500,
@@ -203,8 +204,8 @@ Page({
           filePath: res.tempFilePath,
           success(res) {
             wx.showModal({
-              title: '存图成功',
-              content: '图片成功保存到相册了，去发圈噻~',
+              title: '保存成功',
+              content: '图片成功保存到相册了，去发朋友圈吧~',
               showCancel: false,
               confirmText: '好哒',
               confirmColor: '#72B9C3',
@@ -212,7 +213,7 @@ Page({
                 if (res.confirm) {
                   console.log('用户点击确定');
                 }
-                that.hideShareImg()
+               
               }
             })
           },
@@ -220,12 +221,13 @@ Page({
             console.log(res)
           }
         })
-        
+
       },
       fail: function (res) {
         console.log(res)
       }
-    });
+    }));
+    
     
   }
 
