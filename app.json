@@ -43,10 +43,6 @@
       "text": "记词"
     },
     {
-      "pagePath": "pages/vaudiopage/videolist",
-      "text": "听读"
-    },
-    {
       "pagePath": "pages/searchmorphemelist/index",
       "text": "列表"
     },

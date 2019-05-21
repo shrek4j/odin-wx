@@ -1,5 +1,5 @@
 var UserInfo = require('../userInfo/userInfo.js')
-
+let videoAd = null
 var tempGroup = 1;
 var tempPortionToday = 20;
 Page({ 
@@ -136,49 +136,90 @@ Page({
         
         if (dataObj.isFinished == 'todayTrue'){
           //2. canvas绘制文字和图片
-          var ctx = wx.createCanvasContext('myCanvas')
+          // var ctx = wx.createCanvasContext('myCanvas')
           
-          var qrPath = '../images/miniqr_morpheme.jpg'
-          var bgImgPath = '../images/bg1.jpg';
+          // var qrPath = '../images/miniqr_morpheme.jpg'
+          // var bgImgPath = '../images/bg1.jpg';
 
-          ctx.drawImage(bgImgPath, 0, 0, 500, 800);
+          // ctx.drawImage(bgImgPath, 0, 0, 500, 800);
 
-          ctx.setFillStyle('white')
-          ctx.fillRect(0, 590, 500, 210);
+          // ctx.setFillStyle('white')
+          // ctx.fillRect(0, 590, 500, 210);
 
-          ctx.drawImage(qrPath, 350, 620, 130, 130);
+          // ctx.drawImage(qrPath, 350, 620, 130, 130);
 
-          ctx.setFontSize(22)
-          ctx.setFillStyle('#111111')
-          ctx.fillText('已坚持学习', 80, 90)
-          ctx.setFontSize(38)
-          ctx.fillText(dataObj.learnDaysCount, 120, 138)
-          ctx.setFontSize(22)
-          ctx.fillText('Days', 110, 165)
+          // ctx.setFontSize(22)
+          // ctx.setFillStyle('#111111')
+          // ctx.fillText('已坚持学习', 80, 90)
+          // ctx.setFontSize(38)
+          // ctx.fillText(dataObj.learnDaysCount, 120, 138)
+          // ctx.setFontSize(22)
+          // ctx.fillText('Days', 110, 165)
 
-          ctx.setFontSize(22)
-          ctx.fillText('已学习单词', 310, 90)
-          ctx.setFontSize(38)
-          ctx.fillText(dataObj.learntCount, 340, 138)
-          ctx.setFontSize(22)
-          ctx.fillText('Words', 330, 165)
+          // ctx.setFontSize(22)
+          // ctx.fillText('已学习单词', 310, 90)
+          // ctx.setFontSize(38)
+          // ctx.fillText(dataObj.learntCount, 340, 138)
+          // ctx.setFontSize(22)
+          // ctx.fillText('Words', 330, 165)
 
-          ctx.setFontSize(20)
-          ctx.setFillStyle('black')
-          ctx.fillText('只要10天', 24, 650)
-          ctx.fillText('牢记150+高频词根', 24, 700)
-          ctx.fillText('轻松学会4000+单词', 24, 750)
-          ctx.setFontSize(16)
-          ctx.fillText('长按识别 高效学习' , 345, 770);
-          ctx.draw();
+          // ctx.setFontSize(20)
+          // ctx.setFillStyle('black')
+          // ctx.fillText('只要10天', 24, 650)
+          // ctx.fillText('牢记150+高频词根', 24, 700)
+          // ctx.fillText('轻松学会4000+单词', 24, 750)
+          // ctx.setFontSize(16)
+          // ctx.fillText('长按识别 高效学习' , 345, 770);
+          // ctx.draw();
         }
         
 
         if (dataObj.isFinished == 'noCoin'){
           tempGroup = dataObj.group
           tempPortionToday = dataObj.portionToday
-        }
-        console.log(dataObj)        
+          //加载广告
+          if (wx.createRewardedVideoAd) {
+            videoAd = wx.createRewardedVideoAd({
+              adUnitId: 'adunit-fcf202d4cc370acd'
+            })
+            videoAd.onLoad(() => { "success" })
+            videoAd.onError((err) => { "error" })
+            videoAd.onClose(res => {
+              // 用户点击了【关闭广告】按钮
+              if (res && res.isEnded) {
+                // 正常播放结束，可以下发游戏奖励
+                wx.showToast({
+                  title: '成功领取金币！',
+                  icon: 'success',
+                  duration: 2000
+                })
+
+                var sfz = UserInfo.tryGetSfz();
+                wx.request({
+                  url: 'https://odin.bajiaoshan893.com/LearnWord/rewardCoin',
+                  data: {
+                    'userId': sfz
+                  },
+                  header: {
+                    'content-type': 'application/json'
+                  },
+                  success: function (res) {
+                    wx.redirectTo({
+                      url: '../learnwords/main?progress=next&group=' + tempGroup + '&portionToday=' + tempPortionToday
+                    });
+                  }
+                })
+              } else {
+                // 播放中途退出，不下发游戏奖励
+                wx.showToast({
+                  title: '提前退出无法领取奖励哦(＞﹏＜)',
+                  icon: 'none',
+                  duration: 3000
+                })
+              }
+            })
+          }
+        }      
         that.setData({
           dataObj: dataObj,
           week:week
@@ -186,7 +227,42 @@ Page({
       }
     });
   },
-
+  showAd: function(e){
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+            wx.showToast({
+              title: '广告显示失败，请稍后重试(＞﹏＜)',
+              icon: 'none',
+              duration: 3000
+            })
+          })
+      })
+    }else{
+      wx.showToast({
+        title: '广告显示失败，请稍后重试(＞﹏＜)',
+        icon: 'none',
+        duration: 3000
+      })
+    }
+  },
+  explainAd: function(e){
+    wx.showModal({
+      content: '花了一年多时间做这个小程序，初衷是帮大家更高效地学习单词。本着开源的精神，无意收取学习费用，但是网站维护和服务器租赁是一笔不小开销。为了能让小程序能存活下去，不得已采用广告的方式，用您片刻的时间来养活这个小程序。开源不易，感谢理解。',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   saveSharePic : function (e){
     var ctx = wx.createCanvasContext('myCanvas')
     ctx.draw(true, wx.canvasToTempFilePath({

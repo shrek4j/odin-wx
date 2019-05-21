@@ -13,9 +13,9 @@
 <view  class="userinfo" style="display:{{showUserInfo}}">
   <image id="odinIcon" class="userinfo-avatar {{playState}}" bindtap="toggleMusic" src="/pages/index/morphlogo.jpg" background-size="cover"></image>
   <view wx:if="{{hasMusic == true}}">
-    <text class="music-tip">点击图标播放或暂停</text>
+    <text class="music-tip">ODIN'S EYE</text>
   </view>
-  <text class="userinfo-nickname">{{brandName}}</text>
+<!--   <text class="userinfo-nickname">{{brandName}}</text>-->
 </view>
 
 
